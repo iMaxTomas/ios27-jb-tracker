@@ -1,2 +1,61 @@
-# ios27-jb-tracker
-iOS 27.0.1 越狱事件（Calif @ Hexacon 2026）事实核查与持续追踪 | Fact-check &amp; ongoing tracker for the iOS 27.0.1 untethered jailbreak demo — 10-dimension cross-verified audit, claims DB, timeline
+# iOS 27.0.1 越狱事件 · 事实核查与持续追踪
+
+> **数据截至 2026-10-17 · 此为发展中事件，持续更新**
+> 本仓库是对「2026-10-16 Calif 于巴黎 Hexacon 大会演示 iPhone 18 Pro 上 iOS 27.0.1 untethered（重启后仍有效）越狱」这一事件的**事实核查档案**：10 维度并行核查、交叉验证、127 条参考文献。不含任何越狱工具或漏洞利用内容。
+
+[English abstract below](#english-abstract)
+
+---
+
+## 三句话结论
+
+1. **事件是真的**：大会、公司、演示流程均经一手来源与六家媒体交叉确认，最强旁证是演示中的 XNU 内核 build 号与真实 iOS 27.0.1 用户 panic 日志逐字一致；但「演示属实 ≠ 漏洞公开 ≠ 工具将发布」。
+2. **被审报告的升级结论方向没错，但论据有三处硬错误**：「自 iOS 9 以来首个 untethered」（2021 年 Fugu14 才是）、「iOS 27 砍掉 iPhone 11」（官方列表证伪）、「下一个 27.0.x 或 27.1 修补」（普通 iPhone 无 27.1，实际通道 27.0.2/27.2）。
+3. **对 A14/A15 设备（如 iPhone 12 Pro Max、iPad mini 6），『留在 26 等越狱』的收益是确定的零**：Dopamine 3.0 的 iOS 26.0–26.0.1 越狱仅限 A12/A13；A14/A15 公开越狱上限仍是 iOS 17.3.1。
+
+## 「27.0.1 链有机会覆盖老版本/老芯片」的支持理由（按强度排序）
+
+1. **漏洞本体在共享代码里**——链条为沙箱逃逸→内核读写→SPTM 绕过，社区解读认为还涉及 CoreTrust/Cryptex；这些是 iOS 全机型全版本共用的同一份代码，不受单一芯片束缚。
+2. **防御击穿是向下顺兼容**——已在 MIE+SPTM（最强防御）的 17e/18 Pro 上打通；A15 只有 SPTM（链内已含绕过）、A14 只有更老的 PPL（公开先例多），老芯片适配是顺向推导。
+3. **iPhone 12 保留在 iOS 27 支持列表**——A14 仍是 iOS 27 一等支持设备，27 的内核/CoreTrust/驱动栈均含 A14 构建目标，无硬件代差壁垒。
+4. **性能优化回溯证明底层路径连续**——iOS 27 的 CPU 调度器优化明确回溯至 iPhone 11（比 A14 更老），说明底层代码跨代连续，移植阻力小。
+5. **AI 门槛不构成漏洞豁免**——Apple Intelligence 只是功能门控（15 Pro+），不是独立系统构建；非 AI 设备跑着相同的内核与签名/磁盘子系统，链不依赖 AI 功能。
+6. **一手口径佐证**——heise 原文即称「适用于直至 iOS 27.0.1 的版本」；社区知情人称测试覆盖 18 Pro 与 17e 两颗芯片、「≤27.0.1 都是好消息」（二手猜测，方向与上述逻辑一致）。
+
+**保留的三个折扣**：① 版本覆盖（≤26.x）从未演示，漏洞是否 27 新引入纯未知；② 链通用 ≠ 工具通用，A14/A15 适配仍需社区后续工作；③ 一切建立在「会发布」上——无 ETA、无 CVE。
+
+## 核查裁决速览
+
+| 类别 | 数量 | 代表条目 |
+|---|---|---|
+| 核心事件属实（T1 级来源确认） | — | 演示流程、公司背景、技术细节多源一致 |
+| 事实错误 E1–E3 | 3 | Fugu14 反例 / iPhone 11 未被砍 / 修补通道误判（部分证伪） |
+| 需修正 P1–P6 | 6 | 性能数字为营销上限、Siri AI 门槛、usbliter8 工具链现状等 |
+| 重大遗漏 O1–O3 | 3 | 用户 A14/A15 在 26.x 无越狱、26 分支仍在维护、升级不可逆 |
+
+## 仓库结构
+
+| 路径 | 内容 |
+|---|---|
+| `report/full-audit-zh.md` | 完整审核报告（约 9,600 字，281 处引用，127 条文献） |
+| `research/` | 10 份维度核查档案 + 交叉验证 + 洞察（可复现证据链） |
+| `data/claims.json` | 机器可读断言库：claim / verdict / confidence / sources |
+| `data/timeline.json` | 事件时间线（持续更新） |
+| `SKILL.md` | Agent 技能入口：AI 代理可将本仓库作为技能加载调用 |
+| `CHANGELOG.md` | 事件进展更新记录 |
+
+## 给 AI Agent 的入口
+
+本仓库同时是一个 **Agent Skill**：将仓库 clone 到 agent 的 skills 目录（或打包为 `.skill` 文件安装），agent 在遇到「iOS 27 越狱 / Calif / Hexacon / 26 vs 27 升级」类问题时会自动加载本档案的结论与引用。详见 `SKILL.md`。
+
+## 免责声明
+
+本仓库为新闻事实核查与安全研究档案，仅供信息参考；不提供、不评价任何越狱工具的获取方式；不构成任何升级/不升级的建议承诺。所有结论标注了置信度与时效。
+
+---
+
+## English abstract
+
+Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16). The event itself is verified (multi-source + kernel build match with real panic logs), but the viral report around it contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-10-17; evolving story.
+
+License: CC BY 4.0 — attribution required when reusing content.

@@ -1,0 +1,22 @@
+{
+  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-10-17", "note": "持续更新；pending = 预期事件"},
+  "events": [
+    {"date": "2025-09", "event": "iOS 26 发布；随后出现大规模发热/耗电投诉", "type": "context"},
+    {"date": "2025-11-03", "event": "iOS 26.1 发布；同月苹果停签 iOS 26.0.1", "type": "context"},
+    {"date": "2025-12", "event": "iOS 26.2 发布后发热问题明显好转（26.1 未根治）", "type": "context"},
+    {"date": "2026-02", "event": "在野 0day CVE-2026-20700（dyld）于 26.x 修复", "type": "security"},
+    {"date": "2026-06-08", "event": "WWDC26：iOS 27 发布预览，主打速度/安全/可靠性", "type": "context"},
+    {"date": "2026-06-18", "event": "Paradigm Shift 披露 usbliter8（A12/A13 SecureROM 漏洞）", "type": "jailbreak"},
+    {"date": "2026-07-21", "event": "Magnet Forensics 诉 Del Gaudio 案：法院命令下架 usbliter8 write-up 与 PoC", "type": "legal"},
+    {"date": "2026-07-25", "event": "社区 usbliter8-fun 实现 iPhone 11 Pro 上 iOS 27.0b2 tethered 研究级越狱", "type": "jailbreak"},
+    {"date": "2026-08-07", "event": "Dopamine 3.0 发布：首个 iOS 26 越狱，26.0/26.0.1 仅限 A12/A13", "type": "jailbreak"},
+    {"date": "2026-09-14", "event": "iOS 27.0 发布（约 126 CVE 修复）；安全说明致谢 'Calif.io in collaboration with Claude and Anthropic Research'（CVE-2026-65409/65410）", "type": "apple"},
+    {"date": "2026-09-28", "event": "iOS 27.0.1 与 26.7.1 同日发布；26.7.1 修复在野 0day CVE-2026-86950（CISA KEV）", "type": "apple"},
+    {"date": "2026-09-28", "event": "Corellium/Cellebrite 博客称 'iOS 27 无法在任何现有物理设备上越狱'", "type": "industry"},
+    {"date": "2026-10-05", "event": "iOS 27.2 进入 beta（后续至 beta 4）", "type": "apple"},
+    {"date": "2026-10-16", "event": "Hexacon 2026（巴黎）：Calif 现场演示 iPhone 18 Pro 上 iOS 27.0.1 untethered 越狱；官方称 'Everything will be released in due time'", "type": "key_event"},
+    {"date": "2026-10-17", "event": "本仓库首次核查完成（10 维度交叉验证）", "type": "audit"},
+    {"date": "2026-10 (下旬, pending)", "event": "iOS 27.2 预计发布——关注其安全说明是否致谢 Calif 的内核/沙盒级条目（链被修补的信号）", "type": "pending"},
+    {"date": "pending", "event": "Calif 是否发布工具/writeup（'in due time'，无 ETA）；若发布，关注是否覆盖 A14/A15", "type": "pending"}
+  ]
+}

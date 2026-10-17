@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "iOS 27.0.1 越狱事件核查断言库",
+    "as_of": "2026-10-17",
+    "method": "10 维度并行核查 + 交叉验证；四级裁决：verified / partially_true / unverifiable / falsified",
+    "full_report": "report/full-audit-zh.md"
+  },
+  "claims": [
+    {"id": "V1", "claim": "2026-10-16 Calif 在巴黎 Hexacon（Synacktiv 主办）演示 iPhone 18 Pro（iPhone19,2/T8160/build 24A446）上 iOS 27.0.1 的 untethered 越狱：重启→密码解锁→SSH 2222 root（uid=0），dpkg 67 包", "verdict": "verified", "confidence": "high", "note": "Hexacon 官方 X + 官网议程 + 六家媒体 + XNU build 与真实 panic 日志逐字一致", "dim": ["dim01", "dim02"]},
+    {"id": "V2", "claim": "漏洞未披露、无 CVE、无公开工具；Calif 官方称 'Everything will be released in due time'", "verdict": "verified", "confidence": "high", "note": "'in due time' 为 Calif 官方 X 账号原话", "dim": ["dim01", "dim02"]},
+    {"id": "V3", "claim": "演示在已解锁手机上进行，不涉及锁屏绕过", "verdict": "verified", "confidence": "high", "dim": ["dim01", "dim02"]},
+    {"id": "V4", "claim": "Calif 为 Palo Alto 营利性安全公司，有多次 AI 辅助挖洞记录；Apple iOS 27 安全说明（2026-09-14）致谢 'Calif.io in collaboration with Claude and Anthropic Research'", "verdict": "verified", "confidence": "high", "dim": ["dim01"]},
+    {"id": "V5", "claim": "usbliter8 = Paradigm Shift 于 2026-06-18 披露的 A12/A13（及 S4/S5）SecureROM 漏洞，不可通过 iOS 更新修补，物理访问型，不攻破 SEP；A14+ 不受影响", "verdict": "verified", "confidence": "high", "note": "原始 write-up 2026-07 被美法院命令下架（Magnet 诉 Del Gaudio）；社区 usbliter8-fun 为研究级 tethered 实现", "dim": ["dim04"]},
+    {"id": "V6", "claim": "iOS 27 无任何公开越狱工具；声称能越狱 iOS 27 的网站/App 多为骗局", "verdict": "verified", "confidence": "high", "note": "nekoJB 假越狱（恶意描述文件+根证书）已有实证剖析", "dim": ["dim02", "dim05", "dim09"]},
+    {"id": "E1", "claim": "被审报告称：该演示是'自 iOS 9 以来首个重启级（untethered）越狱'", "verdict": "falsified", "confidence": "high", "correction": "2021-10-24 Linus Henze 发布 Fugu14（iOS 14.3–14.5.1，arm64e 含 iPhone 12，开源），POC2022 官方简介称其为 'the first publicly available untethered jailbreak since iOS 9'；且本次仅为演示而非公开工具", "dim": ["dim03"]},
+    {"id": "E2", "claim": "被审报告称：iOS 27 砍掉 iPhone 11，仅支持 iPhone 12+", "verdict": "falsified", "confidence": "high", "correction": "Apple 官方列表：iOS 27 兼容与 iOS 26 完全相同，iPhone 11 全系在列（被砍的 XS/XR 发生在 iOS 26）；iOS 26 分支仍在并行维护（26.7.1 与 27.0.1 同日发布）", "dim": ["dim07", "dim10"]},
+    {"id": "E3", "claim": "被审报告称：苹果预计在下一个 27.0.x 或 27.1 修补该漏洞", "verdict": "partially_true", "confidence": "high", "correction": "普通 iPhone 无 27.1（27.1 为 iPhone Duo 独占）；实际修补通道为 27.0.2 或 27.2（已 beta 4，预计 2026 年 10 月下旬），锁版本窗口约 1–2 周", "dim": ["dim09", "dim10"]},
+    {"id": "P1", "claim": "iOS 27 性能提升：应用启动快 30%、照片加载快 70%、AirDrop 快 80%", "verdict": "partially_true", "confidence": "high", "correction": "官方口径属实但均为 'up to' 上限，且分测三台设备（30% 测自 iPhone 11 Pro Max / 70% iPhone 15 / 80% iPhone 16 Plus）；第三方实测普遍打折", "dim": ["dim08"]},
+    {"id": "P2", "claim": "iOS 27 提供 Siri AI + 个人上下文 + 跨 App 操作 + Call Context", "verdict": "partially_true", "confidence": "high", "correction": "功能真实但英文 Beta 首发、需 iPhone 15 Pro+、国行首发无 AI、暂无中文——对 iPhone 12 PM / iPad mini 6 不适用", "dim": ["dim08"]},
+    {"id": "P3", "claim": "usbliter8 无公开越狱工具", "verdict": "partially_true", "confidence": "medium", "correction": "2026-07 起社区 usbliter8-fun 实现 iPhone 11 Pro 上 iOS 27.0b2 tethered 研究级越狱（破坏性）；无 checkra1n 式成熟工具", "dim": ["dim04"]},
+    {"id": "P4", "claim": "Calif 链大概率不适配/需适配 A14/A15", "verdict": "unverifiable", "confidence": "medium", "correction": "方向合理的推断；但 A14/A15 无 MIE 反而降低移植难度；真正障碍是 iOS 27 上 A14 缺公开 PPL bypass、A15 缺 SPTM bypass（链内 SPTM 绕过若公开可解 A15）", "dim": ["dim06"]},
+    {"id": "P5", "claim": "Hexacon 2026 自称 'Mythos era'", "verdict": "partially_true", "confidence": "medium", "correction": "精确措辞仅见单一二手来源；官网 keynote 确以 Mythos 模型为核心，方向正确", "dim": ["dim01"]},
+    {"id": "P6", "claim": "完整越狱链在漏洞市场价值极高，Calif 无免费放出强动机", "verdict": "partially_true", "confidence": "medium", "correction": "前提属实（Zerodium 最高 $2M、Crowdfense $7–9M；Calif 历史模式为私下报告+补丁后发 crash-only PoC），但存在 'in due time' 反向信号，结论应为不确定", "dim": ["dim09"]},
+    {"id": "O1", "claim": "（被审报告遗漏）Dopamine 3.0 的 iOS 26.0–26.0.1 越狱仅限 A12/A13；A14/A15 在任何 26.x 上无越狱（上限 iOS 17.3.1）；26.1 全芯片无工具；26.0.1 已停签无法降级", "verdict": "verified", "confidence": "high", "note": "颠覆用户决策框架的关键事实", "dim": ["dim05", "dim10"]},
+    {"id": "O2", "claim": "（被审报告遗漏）'停在 26.1'与'留在 iOS 26 分支'是两回事：iOS 26 分支仍在维护（26.7.1 与 27.0.1 同日发布），但 26.1 已暴露约 11 个月补丁缺口（含 2 个在野 0day，CVE-2026-86950 在 CISA KEV）", "verdict": "verified", "confidence": "high", "dim": ["dim09", "dim10"]},
+    {"id": "O3", "claim": "（被审报告遗漏）升级不可逆：A12+ 设备 SHSH blob 无效；27.0.1 停签后仅余 DelayOTA 约 90 天补救通道", "verdict": "verified", "confidence": "high", "dim": ["dim10"]}
+  ]
+}
