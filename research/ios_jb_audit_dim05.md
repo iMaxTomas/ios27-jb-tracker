@@ -56,7 +56,7 @@
 
 **裁决：与 usbliter8 无关。真正原因是"momentarius PPL 绕过（仅限 A12/A13）+ ClearSword/DarkSword 内核漏洞"这一纯软件链；A14+ 设备在 iOS 17.4+/26 上由 SPTM 取代 PPL，而 ≥17.4 没有可用的 SPTM 绕过。置信度：高。**
 
-- Dopamine 3.0 官方更新日志（theapplewiki 逐字转录）："Add Titan PPL/SPTM bypass by @alfiecg24, introduces support for all devices running 16.5.1 - 17.3.1"、"Add momentarius PPL bypass by @staturnzz and @TheRealClarity, introduces support for A12/A13 devices running 16.6 - 18.7.1, 26.0 - 26.0.1"、"obviously only works up to 17.3.1 on real devices due to lack of an SPTM bypass on >=17.4"、"Add ClearSword exploit by @TheRealClarity, cleaner alternative to DarkSword"。[^1^][^13^]
+- Dopamine 3.0 官方更新日志（theapplewiki 逐字转录）："Add Titan PPL/SPTM bypass by @alfiecg24, introduces support for all devices running 16.5.1 - 17.3.1"、"Add momentarius PPL bypass by @staturnzz and @TheRealClarity, introduces support for A12/A13 devices running 16.6 - 18.7.1, 26.0 - 26.0.1"、"obviously only works up to 17.3.1 on real devices due to lack of an SPTM bypass on >=17.4"、"Add ClearSword exploit by @TheRealClarity, cleaner alternative to DarkSword".[^1^][^13^]
 - r/jailbreak 社区技术解释（u/Yeth3，经 ComputerBase 引用，逐字）："26.0.1 is only supported on A12/A13 because they have a new PPL bypass and the darksword kernel exploit. A15+ on 17.0+ replaces PPL with SPTM, and darksword is patched on 26.1"[^14^]
 - **关于 usbliter8**：它是 Paradigm Shift 团队 2026-06-18 公开的 **A12/A13 SecureROM（BootROM）系留漏洞**，利用 Synopsys DWC2 USB 控制器硬件缺陷，需 DFU 模式 + RP2350 单片机物理接触触发；"A14 and later appear to be out of reach"。[^15^][^16^] 它**不是** Dopamine 的依赖——Dopamine 3.0 的漏洞清单（theapplewiki 逐字）为 "ClearSword / DarkSword (kernel exploit)、Titan (SPTM/PPL bypass)、momentarius (PPL bypass)" 等纯软件组件[^1^]；截至目前也没有基于 usbliter8 的完整越狱工具，它主要用于研究、SSH ramdisk 和降级前置。[^16^][^17^]
 - 补充：A12/A13 之所以在 iOS 26 上仍可被 momentarius 绕过 PPL，而 A14+ 不行，根本原因是新芯片在新系统上启用了 SPTM（Secure Page Table Monitor）且无人公开 ≥17.4 的 SPTM 绕过；Titan 的 SPTM 绕过能力止步于 17.3.1。[^1^][^13^]
@@ -78,7 +78,7 @@ Apple 官方安全公告《About the security content of iOS 26.1 and iPadOS 26.
 
 ### 断言 6：palera1n 等 checkm8 系工具对 iOS/iPadOS 26 的支持情况（A8–A11）
 
-**裁决：checkm8 系工具在事实上与 iOS/iPadOS 26 无缘——没有任何 checkm8 vulnerable 设备能运行 iOS 26。置信度：高。**
+**裁决：checkm8 系工具在事实上与 iOS/iPadOS 26 无缘——没有任何 checkm8  vulnerable 设备能运行 iOS 26。置信度：高。**
 
 - checkm8 仅影响 A5–A11（iPhone 4S–iPhone X）。受影响设备的系统天花板：iPhone X/8 止步 iOS 16.7.x；最新的 checkm8 iPad（iPad 第 7 代，A10）止步 iPadOS 18.x。techengage 逐字："No checkm8 device can run iOS 26."[^6^]
 - palera1n 官方定位（GitHub，逐字）："Jailbreak for A8 through A11, T2 devices, on iOS/iPadOS/tvOS 15.0, bridgeOS 5.0 and higher"[^20^]——"15.0 及以上"仅限其支持的硬件，而支持硬件里没有能跑 iOS 26 的机型。
