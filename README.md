@@ -27,6 +27,19 @@
 
 **保留的三个折扣**：① 版本覆盖（≤26.x）从未演示，漏洞是否 27 新引入纯未知；② 链通用 ≠ 工具通用，A14/A15 适配仍需社区后续工作；③ 一切建立在「会发布」上——无 ETA、无 CVE。
 
+## 芯片阵营图：你的设备在哪一队？
+
+公开越狱停在 17.3.1、26.x 无门、指望 ≤27.0.1 窗口的设备，按芯片分四个阵营：
+
+| 阵营 | 芯片 | 代表设备 | 距越狱还缺什么 |
+|---|---|---|---|
+| 🟥 **PPL 阵营**（最远） | A14、M1 | iPhone 12 全系、iPad Air 5、iPad Pro 2021 | **两块拼图**：PPL 绕过（SPTM 绕过与其无关）+ 新内核漏洞 |
+| 🟨 **SPTM 阵营**（缺口最小）⭐ | A15、A16、A17 Pro、A18/Pro、M2/M3/M4 | iPhone 13→16 全系、SE3、iPad mini 6/7、iPad Air (M2/M3)、iPad Pro (M4) | **只差一块**：>26.0.1 的新内核漏洞（SPTM 绕过已有实物，≤27.0.1 有效） |
+| 🟩 **MIE 阵营**（已演示） | A19（含 17e）、A20 Pro | iPhone 17 全系、iPhone 18 Pro | Calif 已直接演示，等发布即可 |
+| 🟦 **A12/A13**（对照组） | A12/A13 | iPhone XS/XR/11、SE2、iPad 8/Air 3/mini 5 | 已在岸上：26.0.1 有 Dopamine 3.0 + usbliter8 双保险 |
+
+要点：SPTM 阵营覆盖 iPhone 13→16 整整四代，人多势众、缺口最小，社区火力大概率优先落在这里；PPL 阵营（A14/M1）是孤岛，等待时间预计最长。
+
 ## 核查裁决速览
 
 | 类别 | 数量 | 代表条目 |
@@ -50,7 +63,7 @@
 
 ## 给 AI Agent 的入口
 
-本仓库同时是一个 **Agent Skill**：将仓库 clone 到 agent 的 skills 目录（或打包为 `.skill` 文件安装），agent 在遇到「iOS 27 越狱 / Calif / Hexacon / 26 vs 27 升级」类问题时会自动加载本档案的结论与引用。详见 `SKILL.md`。
+本仓库同时是一个 **Agent Skill**：将仓库 clone 到 agent 的 skills 目录（或打包为 `.skill` 文件安装），agent 在遇到「iOS 27 越狱 / Calif / Hexacon / 26 vs 27 升级 / 我的芯片能不能越狱」类问题时会自动加载本档案的结论与引用。详见 `SKILL.md`。
 
 ## 免责声明
 
@@ -60,6 +73,6 @@
 
 ## English abstract
 
-Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16). The event itself is verified (multi-source + kernel build match with real panic logs), but the viral report around it contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Oct 20): opa334 warns iOS 27.2 Beta 3 reportedly patches an independent SPTM bypass — stay on ≤27.0.1 if you care about jailbreaking.** Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-10-20; evolving story.
+Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16). The event itself is verified (multi-source + kernel build match with real panic logs), but the viral report around it contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Oct 20): opa334 warns iOS 27.2 Beta 3 reportedly patches an independent SPTM bypass — stay on ≤27.0.1 if you care about jailbreaking.** Includes a chip-camp map (PPL vs SPTM vs MIE) showing what each Apple silicon generation still lacks for a jailbreak. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-10-20; evolving story.
 
 License: CC BY 4.0 — attribution required when reusing content.
