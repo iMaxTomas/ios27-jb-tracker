@@ -1,5 +1,5 @@
 {
-  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-10-21", "note": "持续更新；pending = 预期事件"},
+  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-10-24", "note": "持续更新；pending = 预期事件"},
   "events": [
     {"date": "2025-09", "event": "iOS 26 发布；随后出现大规模发热/耗电投诉", "type": "context"},
     {"date": "2025-11-03", "event": "iOS 26.1 发布；同月苹果停签 iOS 26.0.1", "type": "context"},
@@ -9,7 +9,7 @@
     {"date": "2026-06-18", "event": "Paradigm Shift 披露 usbliter8（A12/A13 SecureROM 漏洞）", "type": "jailbreak"},
     {"date": "2026-07-21", "event": "Magnet Forensics 诉 Del Gaudio 案：法院命令下架 usbliter8 write-up 与 PoC", "type": "legal"},
     {"date": "2026-07-25", "event": "社区 usbliter8-fun 实现 iPhone 11 Pro 上 iOS 27.0b2 tethered 研究级越狱", "type": "jailbreak"},
-    {"date": "2026-08-07", "event": "Dopamine 3.0 发布：首个 iOS 26 越狱，26.0/26.0.1 仅限 A12/A13", "type": "jailbreak"},
+    {"date": "2026-08-07", "event": "Dopamine 3.0 发布：首个 iOS 26 越狱，26.0/26.0.1 仅限 A12/A13；同日 alfiecg24 发布 Titan（A14–A17 PPL+SPTM 绕过，≤17.4b3）、staturnz 发布 Momentarius（A12/A13 PPL 绕过）", "type": "jailbreak"},
     {"date": "2026-09-14", "event": "iOS 27.0 发布（约 126 CVE 修复）；安全说明致谢 'Calif.io in collaboration with Claude and Anthropic Research'（CVE-2026-65409/65410）", "type": "apple"},
     {"date": "2026-09-28", "event": "iOS 27.0.1 与 26.7.1 同日发布；26.7.1 修复在野 0day CVE-2026-86950（CISA KEV）", "type": "apple"},
     {"date": "2026-09-28", "event": "Corellium/Cellebrite 博客称 'iOS 27 无法在任何现有物理设备上越狱'", "type": "industry"},
@@ -19,9 +19,12 @@
     {"date": "2026-10-17", "event": "首次核查完成（10 维度交叉验证，127 条文献）", "type": "audit"},
     {"date": "2026-10-17", "event": "opa334 PSA：iOS 27.2 beta 3 据传修补一个 SPTM 绕过——与 Calif 演示无关，本身可用于越狱但 >26.0.1 需新内核漏洞；建议想越狱者勿升 27.2", "type": "jailbreak"},
     {"date": "2026-10-18", "event": "johnny：27.2b3 修补的 SPTM 漏洞属实，但 Calif 演示可能并未使用 SPTM 绕过（或类 DarkSword 运行时代码路线）", "type": "jailbreak"},
-    {"date": "2026-10-19", "event": "heise/Mac & i 刊发 Calif 成员 Stefan Esser（i0n1c）专访：①不发布终端用户工具，但将披露漏洞让第三方制作，可能放 PoC（时机：Apple 补丁后）；②链绕过 MIE，Esser 称'基本适用于任何运行 27.0.1 的 iPhone（推测含 iPad）'；③大部分漏洞已在 27.2 beta 修复", "type": "key_event"},
-    {"date": "2026-10-20", "event": "日常巡检：Calif 无发布；27.2 未发布（iPhone Duo 10-23 携 27.1 发售，传言或先发 27.0.2）；27.0.1 仍在签名（含 iPhone 12 全系）", "type": "audit"},
-    {"date": "2026-10 (下旬, pending)", "event": "iOS 27.2 预计发布——关注其安全说明是否致谢 Calif 的内核/沙盒级条目（链被修补的信号），以及 27.0.1 是否同步关签", "type": "pending"},
+    {"date": "2026-10-19", "event": "heise/Mac & i 刊发 Calif 成员 Stefan Esser（i0n1c）专访：①不发布终端用户工具，但将披露漏洞让第三方制作，可能放 PoC（时机：Apple 补丁后）；②链绕过 MIE，'基本适用任何 27.0.1 设备'；③大部分漏洞已在 27.2 beta 修复", "type": "key_event"},
+    {"date": "2026-10-19", "event": "iOS 27.2 RC（24B115）与 26.7.2 RC 推送；27.2 正式版预计 10-26/27", "type": "apple"},
+    {"date": "2026-10-20", "event": "日常巡检：Calif 无发布；27.0.1 仍在签名（含 iPhone 12 全系）", "type": "audit"},
+    {"date": "2026-10-23", "event": "iPhone Duo 发售（独占 iOS 27.1，A20 Pro/MIE）；Calif 当天官宣 'we popped the iPhone Duo on release day'（6 秒演示视频，79 万+观看，画面为 Gravity Lite 插件彩蛋）；Johnny 二进制比对确认链相关漏洞（SPTM 绕过+airlift 沙箱逃逸）在 27.1 仍未修补", "type": "key_event"},
+    {"date": "2026-10-24", "event": "四路集群核查 Duo 事件：视频系'发售日秒杀'宣示而非技术演示；工具代号传为 Chollima（单源未证实）；主流媒体报道真空期；假越狱站已把 Duo 列入支持列表；27.0.1 仍在签，窗口进入倒计时", "type": "audit"},
+    {"date": "2026-10-26/27 (pending)", "event": "iOS 27.2 正式版预计发布——关注安全说明 CVE/致谢（Calif 链被修补的实锤信号）及 27.0.1 是否同步关签", "type": "pending"},
     {"date": "pending", "event": "Calif 漏洞披露/write-up（Esser 承诺补丁后公开，PoC 待定）——关键观察点：是否含 PPL/A14 相关内容，决定 A14 阵营判决走向", "type": "pending"}
   ]
 }
