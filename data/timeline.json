@@ -1,12 +1,12 @@
 {
-  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-10-24", "note": "持续更新；pending = 预期事件"},
+  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-10-31", "note": "持续更新；pending = 预期事件；术语以 CONTEXT.md 为准"},
   "events": [
     {"date": "2025-09", "event": "iOS 26 发布；随后出现大规模发热/耗电投诉", "type": "context"},
     {"date": "2025-11-03", "event": "iOS 26.1 发布；同月苹果停签 iOS 26.0.1", "type": "context"},
     {"date": "2025-12", "event": "iOS 26.2 发布后发热问题明显好转（26.1 未根治）", "type": "context"},
     {"date": "2026-02", "event": "在野 0day CVE-2026-20700（dyld）于 26.x 修复", "type": "security"},
     {"date": "2026-06-08", "event": "WWDC26：iOS 27 发布预览，主打速度/安全/可靠性", "type": "context"},
-    {"date": "2026-06-18", "event": "Paradigm Shift 披露 usbliter8（A12/A13 SecureROM 漏洞）", "type": "jailbreak"},
+    {"date": "2026-06-18", "event": "Paradigm Shift 披露 usbliter8（A12/A13 SecureROM 漏洞，亦覆盖 S4/S5 手表）", "type": "jailbreak"},
     {"date": "2026-07-21", "event": "Magnet Forensics 诉 Del Gaudio 案：法院命令下架 usbliter8 write-up 与 PoC", "type": "legal"},
     {"date": "2026-07-25", "event": "社区 usbliter8-fun 实现 iPhone 11 Pro 上 iOS 27.0b2 tethered 研究级越狱", "type": "jailbreak"},
     {"date": "2026-08-07", "event": "Dopamine 3.0 发布：首个 iOS 26 越狱，26.0/26.0.1 仅限 A12/A13；同日 alfiecg24 发布 Titan（A14–A17 PPL+SPTM 绕过，≤17.4b3）、staturnz 发布 Momentarius（A12/A13 PPL 绕过）", "type": "jailbreak"},
@@ -19,12 +19,16 @@
     {"date": "2026-10-17", "event": "首次核查完成（10 维度交叉验证，127 条文献）", "type": "audit"},
     {"date": "2026-10-17", "event": "opa334 PSA：iOS 27.2 beta 3 据传修补一个 SPTM 绕过——与 Calif 演示无关，本身可用于越狱但 >26.0.1 需新内核漏洞；建议想越狱者勿升 27.2", "type": "jailbreak"},
     {"date": "2026-10-18", "event": "johnny：27.2b3 修补的 SPTM 漏洞属实，但 Calif 演示可能并未使用 SPTM 绕过（或类 DarkSword 运行时代码路线）", "type": "jailbreak"},
-    {"date": "2026-10-19", "event": "heise/Mac & i 刊发 Calif 成员 Stefan Esser（i0n1c）专访：①不发布终端用户工具，但将披露漏洞让第三方制作，可能放 PoC（时机：Apple 补丁后）；②链绕过 MIE，'基本适用任何 27.0.1 设备'；③大部分漏洞已在 27.2 beta 修复", "type": "key_event"},
-    {"date": "2026-10-19", "event": "iOS 27.2 RC（24B115）与 26.7.2 RC 推送；27.2 正式版预计 10-26/27", "type": "apple"},
+    {"date": "2026-10-19", "event": "heise/Mac & i 刊发 Calif 成员 Stefan Esser（i0n1c）专访：不做终端工具、补丁后披露+可能 PoC；链绕过 MIE、'基本适用任何 27.0.1 设备'；大部分漏洞已在 27.2 beta 修复", "type": "key_event"},
+    {"date": "2026-10-19", "event": "iOS 27.2 RC（24B115）与 26.7.2 RC 推送；同日更新的 iOS 27 安全说明补充 Calif 内核 CVE-2026-28968 + TCC CVE-2026-86886", "type": "apple"},
     {"date": "2026-10-20", "event": "日常巡检：Calif 无发布；27.0.1 仍在签名（含 iPhone 12 全系）", "type": "audit"},
-    {"date": "2026-10-23", "event": "iPhone Duo 发售（独占 iOS 27.1，A20 Pro/MIE）；Calif 当天官宣 'we popped the iPhone Duo on release day'（6 秒演示视频，79 万+观看，画面为 Gravity Lite 插件彩蛋）；Johnny 二进制比对确认链相关漏洞（SPTM 绕过+airlift 沙箱逃逸）在 27.1 仍未修补", "type": "key_event"},
-    {"date": "2026-10-24", "event": "四路集群核查 Duo 事件：视频系'发售日秒杀'宣示而非技术演示；工具代号传为 Chollima（单源未证实）；主流媒体报道真空期；假越狱站已把 Duo 列入支持列表；27.0.1 仍在签，窗口进入倒计时", "type": "audit"},
-    {"date": "2026-10-26/27 (pending)", "event": "iOS 27.2 正式版预计发布——关注安全说明 CVE/致谢（Calif 链被修补的实锤信号）及 27.0.1 是否同步关签", "type": "pending"},
-    {"date": "pending", "event": "Calif 漏洞披露/write-up（Esser 承诺补丁后公开，PoC 待定）——关键观察点：是否含 PPL/A14 相关内容，决定 A14 阵营判决走向", "type": "pending"}
+    {"date": "2026-10-23", "event": "iPhone Duo 发售（独占 iOS 27.1，A20 Pro/MIE）；Calif 当天官宣 'we popped the iPhone Duo on release day'（6 秒演示视频，79 万+观看，画面为 Gravity Lite 插件彩蛋）；Johnny 二进制比对确认链相关漏洞在 27.1 仍未修补", "type": "key_event"},
+    {"date": "2026-10-24", "event": "四路集群核查 Duo 事件：视频系'发售日秒杀'宣示；工具代号传为 Chollima（单源未证实）；主流媒体报道真空期；假越狱站已把 Duo 列入支持列表", "type": "audit"},
+    {"date": "2026-10-26/27", "event": "iOS 27.2（24B119）发布：163 CVE，Calif 获 6 个 CVE 致谢（含内核级 AVEVideoEncoder CVE-2026-112705），链上大部分漏洞被修；26.7.2/watchOS 27.2 等同步发布；社区明确披露里程碑=27.1 停签后", "type": "key_event"},
+    {"date": "2026-10-30", "event": "三事件同日：①MMdAS 独立复现 CVE-2026-112705 并公开 DoS 级 PoC（链上零件首次公开）；②ikotas00 展示 27.2 root 演示（仅图片证据，未证实，'第二链'传闻）；③Calif 官推发布裸 SHA-256 哈希承诺（含义未知）", "type": "key_event"},
+    {"date": "2026-10-31", "event": "日常巡检：27.0.1 仍在签（倒计时）；watchOS 27.0.1 越狱传闻核查——S4/S5 可破芯片无法升 27，集合零交集；用户提供 Calif 手表（Ultra）演示截图，一手推文待核实", "type": "audit"},
+    {"date": "pending", "event": "27.0.1 停签观察：27.2 已发布，按惯例停签在即——未升者最后窗口", "type": "pending"},
+    {"date": "pending", "event": "27.1 停签（Duo）→ 社区预期 Calif write-up 发布窗口：关键观察点=是否含 PPL/A14 相关内容，决定 A14 阵营判决走向", "type": "pending"},
+    {"date": "pending", "event": "Calif 10-30 哈希承诺的揭晓：对象版本与漏洞性质未知", "type": "pending"}
   ]
 }
