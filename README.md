@@ -1,39 +1,44 @@
 # iOS 27.0.1 越狱事件 · 事实核查与持续追踪
 
-> **数据截至 2026-10-24 · 此为发展中事件，持续更新**
+> **数据截至 2026-10-31 · 此为发展中事件，持续更新**
 > 本仓库是对「2026-10-16 Calif 于巴黎 Hexacon 大会演示 iPhone 18 Pro 上 iOS 27.0.1 untethered（重启后仍有效）越狱」这一事件的**事实核查档案**：10 维度并行核查、交叉验证、127 条参考文献。不含任何越狱工具或漏洞利用内容。
 >
-> 📌 **最新（10-24）**：Calif 于 **iPhone Duo 发售日（10-23）当天官宣攻破 Duo**（"we popped the iPhone Duo on release day"，6 秒演示视频 79 万+观看）；二进制比对确认链相关漏洞在 27.1 仍未修补。**27.2 正式版预计 10-26/27 发布、27.0.1 仍在签**——想越狱请立即锁定 27.0.1，勿碰 27.2。详见 [CHANGELOG](CHANGELOG.md)。
+> 📌 **最新（10-31）**：**iOS 27.2 已于 10-27 发布**（163 CVE，Calif 获 6 个 CVE 致谢，链上大部分漏洞被修）；**第三方首次独立复现链上漏洞**（CVE-2026-112705，DoS 级 PoC 已公开）；Calif 发布裸 SHA-256 哈希承诺（含义未知）；另有 ikotas00 展示 27.2 root 演示（仅图片证据，未证实）。**27.0.1 仍在签但进入倒计时，勿升 27.2**。详见 [CHANGELOG](CHANGELOG.md)。
 
-## 生态进度工程图（2026-10-24 快照）
+## 生态进度工程图（2026-10-31 快照）
 
 ```
 图例：██ 已完成  ▒▒ 进行中  ░░ 等待发令枪  ◆ 关键事件  ❓ 是非判定
 
-时间轴        8月       10-16     10-23     27.2发布    未来
-              │          │         │          │
+时间轴        8月    10-16   10-23   10-27    10-30     未来
+              │       │       │       │        │
 【上游 · 漏洞供给】
-Calif         ████████演示████攻破Duo██░░披露?◆
-              (MIE绕过/untethered)    (等27.2补丁落地)
-SPTM作者      ██绕过成品██░░░░░░░░░░░░░░░░░░  (实物已备,缺内核洞)
-内核洞供应     ▒▒AI持续挖洞▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (ClearSword模式延续)
+Calif         ████演示███攻破Duo███27.2修复◆██哈希承诺◆░░披露?
+              (MIE/untethered)   (6CVE被修) (新漏洞时间戳) (等27.1停签)
+SPTM作者      ██绕过成品██░░░░░░░░░░░░░░░░░░░░░░░░░░  (实物已备,缺内核洞)
+MMdAS         ────────────────██复现CVE-112705██▒▒武器化?
+                             (DoS级PoC+崩溃日志,公开零件①)
+Ikotas Labs   ──────────────────────❓27.2 root演示
+                             (仅图片证据,无CVE无承诺,待证)
+内核洞供应     ▒▒AI持续挖洞▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (ClearSword模式延续)
 
 【中游 · 分析监测】
-johnny        ▒▒▒▒二进制比对▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (持续监测链活性)
-opa334        ▒▒PSA预警▒▒░░░░░░░░░░░░░░░░░░░  (等披露→可能做工具)
+johnny        ▒▒▒▒二进制比对▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (持续监测链活性)
+opa334        ▒▒PSA预警▒▒░░░░░░░░░░░░░░░░░░░░░░░░░  (等披露→可能做工具)
 
 【下游 · 用户】
-蹲守用户                        ░░刷27.0.1蹲守░░
+蹲守用户                   ░░刷27.0.1蹲守░░░░░░░░░░  (27.0.1仍在签,倒计时)
 
 【依赖关系】
-Calif披露 ──────────→ opa334等第三方开工做工具
-新内核洞 + 独立SPTM绕过 ──→ A15工具（不依赖Calif的B计划）
-A14：❓ write-up是否含PPL/A14内容？
+Calif披露(27.1停签后) ──→ opa334等第三方开工
+新内核洞 + 独立SPTM绕过 ──→ A15工具（B计划不变）
+公开零件①(DoS级) ──→ 武器化研究起点,离可用工具仍远
+A14：❓ write-up是否含PPL/A14内容？（判定不变）
       ├─ 有 → 挂上主线进度条（披露后月计）
       └─ 无 → 孤岛，无人有动机从零造PPL绕过
 ```
 
-**读图要点**：全图灰色（░░）都汇向 Calif 一个节点——整个生态的瓶颈不在技术，而在披露；A15 是唯一有 B 计划的阵营（独立 SPTM 绕过 + 新内核洞即可解套）；A14 的命运是❓判定菱形而非进度条。
+**读图要点**：全图灰色（░░）都汇向 Calif 一个节点——整个生态的瓶颈不在技术，而在披露；A15 是唯一有 B 计划的阵营；A14 的命运是❓判定菱形而非进度条。10-30 起新增两个变量：MMdAS 让"公开零件"从 0 到 1（披露前社区已能动工），Ikotas 若属实则是第二链曙光（未证实）。
 
 [English abstract below](#english-abstract)
 
@@ -70,7 +75,7 @@ A14：❓ write-up是否含PPL/A14内容？
 | 🟩 **MIE 阵营**（已演示 ×2） | A19（含 17e）、A20 Pro | iPhone 17 全系、iPhone 18 Pro、**iPhone Duo** | Calif 已直接演示（18 Pro @ 27.0.1 + **Duo @ 27.1 发售日**），等披露后第三方工具即可 |
 | 🟦 **A12/A13**（对照组） | A12/A13 | iPhone XS/XR/11、SE2、iPad 8/Air 3/mini 5 | 已在岸上：26.0.1 有 Dopamine 3.0 + usbliter8 双保险 |
 
-要点：SPTM 阵营覆盖 iPhone 13→16 整整四代，人多势众、缺口最小，社区火力大概率优先落在这里；PPL 阵营（A14/M1）原本最渺茫，10-21 起出现实质转机信号——**下一关键观察点：Calif write-up 是否含 PPL/A14 相关内容**。⚠️ **27.2 正式版预计 10-26/27 发布**，届时链漏洞大概率被修、27.0.1 或将关签——窗口只剩数日。
+要点：SPTM 阵营覆盖 iPhone 13→16 整整四代，人多势众、缺口最小，社区火力大概率优先落在这里；PPL 阵营（A14/M1）原本最渺茫，10-21 起出现实质转机信号——**下一关键观察点：Calif write-up 是否含 PPL/A14 相关内容**。⚠️ **27.2 已于 10-27 发布**，链上大部分漏洞被修——27.0.1 签名窗口进入最后倒计时。
 
 ## 核查裁决速览
 
@@ -80,7 +85,7 @@ A14：❓ write-up是否含PPL/A14内容？
 | 事实错误 E1–E3 | 3 | Fugu14 反例 / iPhone 11 未被砍 / 修补通道误判（部分证伪） |
 | 需修正 P1–P6 | 6 | 性能数字为营销上限、Siri AI 门槛、usbliter8 工具链现状等 |
 | 重大遗漏 O1–O3 | 3 | 用户 A14/A15 在 26.x 无越狱、26 分支仍在维护、升级不可逆 |
-| 追踪新增 V7–V15 | 9 | 独立 SPTM 绕过 / 需新内核漏洞 / Esser 专访三条 / Duo 发售日被攻破 / 链覆盖 27.1 / Chollima 代号传闻 / 27.2 倒计时 |
+| 追踪新增 V7–V20 | 14 | SPTM 绕过 / 内核漏洞 / Esser 专访 / Duo 被攻破 / 链覆盖 27.1 / Chollima 代号 / 27.2 倒计时与发布 / 6 CVE 明细 / 独立复现 / 27.2 演示传闻 / 哈希承诺 / 披露里程碑 |
 
 ## 仓库结构
 
@@ -90,6 +95,7 @@ A14：❓ write-up是否含PPL/A14内容？
 | `research/` | 10 份维度核查档案 + 交叉验证 + 洞察 + Duo 事件四路核查（可复现证据链） |
 | `data/claims.json` | 机器可读断言库：claim / verdict / confidence / sources |
 | `data/timeline.json` | 事件时间线（持续更新） |
+| `CONTEXT.md` | 领域术语表：链/零件/拼图/阵营/窗口等概念的唯一权威定义 |
 | `SKILL.md` | Agent 技能入口：AI 代理可将本仓库作为技能加载调用 |
 | `CHANGELOG.md` | 事件进展更新记录 |
 
@@ -105,6 +111,6 @@ A14：❓ write-up是否含PPL/A14内容？
 
 ## English abstract
 
-Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23, "we popped the iPhone Duo on release day"). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Oct 24): binary diffing indicates the chain's bugs remain unpatched across 27.0.1→27.1; iOS 27.2 (expected Oct 26–27) reportedly fixes most of them — stay on ≤27.0.1 if you care about jailbreaking.** Includes a chip-camp map (PPL vs SPTM vs MIE) showing what each Apple silicon generation still lacks for a jailbreak. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-10-24; evolving story.
+Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Oct 31): iOS 27.2 shipped Oct 27 with 163 CVE fixes (6 credited to Calif, covering most of the chain); a third party independently reproduced CVE-2026-112705 (DoS-grade PoC public); Calif posted a bare SHA-256 commitment; an unverified 27.2 root demo by ikotas00 is circulating. Stay on ≤27.0.1 if you care about jailbreaking — disclosure is expected after 27.1 stops signing.** Includes a chip-camp map (PPL vs SPTM vs MIE) and an ecosystem progress diagram. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-10-31; evolving story.
 
 License: CC BY 4.0 — attribution required when reusing content.

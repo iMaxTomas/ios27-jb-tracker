@@ -1,5 +1,17 @@
 # 更新记录
 
+## 2026-10-31 · v0.5 27.2 落地 + 首个公开零件 + 新变量
+- **iOS 27.2 发布（10-27，build 24B119）**：163 CVE；Calif 获 6 个 CVE 致谢——App Intents 112692 / AVEVideoEncoder 112705（内核内存破坏）/ CoreAudio 113912 / CoreGraphics 112611 / CoreGraphics 字体 113950（Substrate+Esser）/ WebKit 112684；另 10-19 更新的 iOS 27 安全说明含 Calif 内核 CVE-2026-28968 + TCC CVE-2026-86886 → V16
+- **披露里程碑明确**：社区预期 Calif 在 **27.1 停签后**发布 write-up（ONE Jailbreak）→ V20
+- **MMdAS 独立复现 CVE-2026-112705**：GitHub 公开 PoC+崩溃日志（NumberOfTemporalLayers=16463 触发 AppleAVE2 内核 panic，iPhone 17 Pro/27.0.1）；固定偏移写、无任意读写，**DoS 级**——链上零件首次落入公开领域，但武器化需另工 → V17
+- **ikotas00（Ikotas Labs）展示 27.2 root 演示**：全局改图标+root shell 截图；仅单方图片、无 CVE、无承诺、无媒体旁证 → V18（未证实，"第二链"传闻）
+- **Calif 发布裸 SHA-256 哈希（10-30）**：无说明，判为哈希承诺（新发现时间戳），版本与对象未知 → V19
+- README：进度图 v2（新增 MMdAS/Ikotas 泳道、披露里程碑改标 27.1 停签）；**新建 CONTEXT.md 领域术语表**（链/零件/复现/武器化/阵营/拼图/窗口/现货期货/B计划/第二链等 16 条）
+- 决策影响：核心结论不变（锁 27.0.1 / 不碰 27.2）；27.0.1 仍在签但进入最后倒计时
+
+## 2026-10-24 · v0.4.1 进度图置顶
+- README 置顶「生态进度工程图」（泳道进度+依赖关系+A14 判定菱形）
+
 ## 2026-10-24 · v0.4 Duo 发售日即被攻破 + 27.2 倒计时
 - **Calif 官宣攻破 iPhone Duo（10-23，发售日当天）**："we popped the iPhone Duo on release day" + 6 秒演示视频（79 万+观看）；视频首帧目检为 Gravity Lite 插件彩蛋——系"发售日秒杀"宣示而非技术演示 → claims 新增 V12
 - **链覆盖确认扩至 27.1**：Johnny 对 Duo 27.1 IPSW 二进制比对，SPTM 绕过 + airlift 沙箱逃逸在 27.1 中仍未修补（同源为强推断）→ V13；工具代号传为 Chollima（单源，未证实）→ V14
