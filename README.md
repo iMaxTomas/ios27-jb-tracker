@@ -1,44 +1,48 @@
 # iOS 27.0.1 越狱事件 · 事实核查与持续追踪
 
-> **数据截至 2026-10-31 · 此为发展中事件，持续更新**
+> **数据截至 2026-11-02 · 此为发展中事件，持续更新**
 > 本仓库是对「2026-10-16 Calif 于巴黎 Hexacon 大会演示 iPhone 18 Pro 上 iOS 27.0.1 untethered（重启后仍有效）越狱」这一事件的**事实核查档案**：10 维度并行核查、交叉验证、127 条参考文献。不含任何越狱工具或漏洞利用内容。
 >
-> 📌 **最新（10-31）**：**iOS 27.2 已于 10-27 发布**（163 CVE，Calif 获 6 个 CVE 致谢，链上大部分漏洞被修）；**第三方首次独立复现链上漏洞**（CVE-2026-112705，DoS 级 PoC 已公开）；Calif 发布裸 SHA-256 哈希承诺（含义未知）；另有 ikotas00 展示 27.2 root 演示（仅图片证据，未证实）。**27.0.1 仍在签但进入倒计时，勿升 27.2**。详见 [CHANGELOG](CHANGELOG.md)。
+> 📌 **最新（11-02）**：俄罗斯开发者 kirby swift 宣布 **AstraSaw** 项目（自称 27.0–27.0.1 越狱工具，krw 已完成、SPTM 未完成，ETA 自述 1–2 周）——经三路集群深挖评级为**低可信度**（作者无漏洞研究史、专家零背书、AGX UAT race 无公开先例），入档观察但不改主线判决。**27.0.1 仍在签（11-02 实时确认），勿升 27.2**；ElleKit 1.2 已就绪（rootless 注入覆盖 iOS 15–27）。前情：27.2 已修链上大部分漏洞；CVE-2026-112705 公开复现（DoS 级）；Calif 哈希承诺未揭晓。详见 [CHANGELOG](CHANGELOG.md)。
 
-## 生态进度工程图（2026-10-31 快照）
+## 生态进度工程图（2026-11-02 快照）
 
 ```
-图例：██ 已完成  ▒▒ 进行中  ░░ 等待发令枪  ◆ 关键事件  ❓ 是非判定
+图例：██ 已完成  ▒▒ 进行中  ░░ 等待发令枪  ◆ 关键事件  ❓ 是非判定/存疑
 
-时间轴        8月    10-16   10-23   10-27    10-30     未来
-              │       │       │       │        │
+时间轴        8月    10-16   10-23   10-27    10-30    11-01     未来
+              │       │       │       │        │        │
 【上游 · 漏洞供给】
-Calif         ████演示███攻破Duo███27.2修复◆██哈希承诺◆░░披露?
-              (MIE/untethered)   (6CVE被修) (新漏洞时间戳) (等27.1停签)
-SPTM作者      ██绕过成品██░░░░░░░░░░░░░░░░░░░░░░░░░░  (实物已备,缺内核洞)
-MMdAS         ────────────────██复现CVE-112705██▒▒武器化?
+Calif         ████演示███攻破Duo███27.2修复◆██哈希承诺◆░░░░披露?
+              (MIE/untethered)   (6CVE被修) (新漏洞时间戳)  (等27.1停签)
+SPTM作者      ██绕过成品██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  (实物已备,缺内核洞)
+MMdAS         ────────────────██复现CVE-112705██▒▒武器化?░░░░
                              (DoS级PoC+崩溃日志,公开零件①)
-Ikotas Labs   ──────────────────────❓27.2 root演示
+Ikotas Labs   ──────────────────────❓27.2 root演示░░░░░░░░
                              (仅图片证据,无CVE无承诺,待证)
-内核洞供应     ▒▒AI持续挖洞▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (ClearSword模式延续)
+kirby/AstraSaw ────────────────────────────────❓krw(自述)▒▒SPTM(AGX)░░工具?
+                             (11-01宣布,semi-untethered,ETA自述1-2周)
+                             (低可信度:无PoC/无背书/无先例/作者无研究史,V21-V24)
+内核洞供应     ▒▒AI持续挖洞▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (ClearSword模式延续)
 
 【中游 · 分析监测】
-johnny        ▒▒▒▒二进制比对▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (持续监测链活性)
-opa334        ▒▒PSA预警▒▒░░░░░░░░░░░░░░░░░░░░░░░░░  (等披露→可能做工具)
+johnny        ▒▒▒▒二进制比对▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (持续监测链活性)
+opa334        ▒▒PSA预警▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░  (等披露→可能做工具)
 
 【下游 · 用户】
-蹲守用户                   ░░刷27.0.1蹲守░░░░░░░░░░  (27.0.1仍在签,倒计时)
+蹲守用户                   ░░刷27.0.1蹲守░░░░░░░░░░░░░░  (11-02仍在签,倒计时)
 
 【依赖关系】
-Calif披露(27.1停签后) ──→ opa334等第三方开工
+Calif披露(27.1停签后) ──→ opa334等第三方开工（ElleKit 1.2 注入层已就绪）
 新内核洞 + 独立SPTM绕过 ──→ A15工具（B计划不变）
 公开零件①(DoS级) ──→ 武器化研究起点,离可用工具仍远
+AstraSaw：❓ 自述ETA(约11-08~15)兑现？专家/媒体48-72h复查？（低可信度,不入主线）
 A14：❓ write-up是否含PPL/A14内容？（判定不变）
       ├─ 有 → 挂上主线进度条（披露后月计）
       └─ 无 → 孤岛，无人有动机从零造PPL绕过
 ```
 
-**读图要点**：全图灰色（░░）都汇向 Calif 一个节点——整个生态的瓶颈不在技术，而在披露；A15 是唯一有 B 计划的阵营；A14 的命运是❓判定菱形而非进度条。10-30 起新增两个变量：MMdAS 让"公开零件"从 0 到 1（披露前社区已能动工），Ikotas 若属实则是第二链曙光（未证实）。
+**读图要点**：全图灰色（░░）都汇向 Calif 一个节点——整个生态的瓶颈不在技术，而在披露；A15 是唯一有 B 计划的阵营；A14 的命运是❓判定菱形而非进度条。10-30 起新增两个变量：MMdAS 让"公开零件"从 0 到 1，Ikotas 若属实则是第二链曙光（未证实）。11-01 的 AstraSaw 是**第三条自述线**，但经身份/先例/背书三重核查评级低可信度——画在图上是为了观察，不代表与 Calif 线同等分量。
 
 [English abstract below](#english-abstract)
 
@@ -62,7 +66,7 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 5. **AI 门槛不构成漏洞豁免**——Apple Intelligence 只是功能门控（15 Pro+），不是独立系统构建；非 AI 设备跑着相同的内核与签名/磁盘子系统，链不依赖 AI 功能。
 6. **一手口径佐证**——heise 原文即称「适用于直至 iOS 27.0.1 的版本」；社区知情人称测试覆盖 18 Pro 与 17e 两颗芯片、「≤27.0.1 都是好消息」（二手猜测，方向与上述逻辑一致）。
 
-**保留的三个折扣**：① 版本覆盖（≤26.x）从未演示，漏洞是否 27 新引入纯未知；② 链通用 ≠ 工具通用，A14/A15 适配仍需社区后续工作；③ 发布模式已明朗：**无终端工具、披露+可能 PoC**（Esser 10-19 专访），但 PoC 只是 "might"、无 ETA。注意：A14 的 Titan 绕过仅限 ≤17.4b3，不构成 27.0.1 的出路。
+**保留的三个折扣**：① 版本覆盖（≤26.x）从未演示，漏洞是否 27 新引入纯未知；② 链通用 ≠ 工具通用，A14/A15 适配仍需社区后续工作；③ 发布模式已明朗：**无终端工具、披露+可能 PoC**（Esser 10-19 专访），但 PoC 只是 "might"、无 ETA。注意：A14 的 Titan 绕过仅限 ≤17.4b3，不构成 27.0.1 的出路；11-01 的 AstraSaw 自称"全系 iPhone"但为低可信度自述，同样不改变上述折扣。
 
 ## 芯片阵营图：你的设备在哪一队？
 
@@ -75,7 +79,7 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 | 🟩 **MIE 阵营**（已演示 ×2） | A19（含 17e）、A20 Pro | iPhone 17 全系、iPhone 18 Pro、**iPhone Duo** | Calif 已直接演示（18 Pro @ 27.0.1 + **Duo @ 27.1 发售日**），等披露后第三方工具即可 |
 | 🟦 **A12/A13**（对照组） | A12/A13 | iPhone XS/XR/11、SE2、iPad 8/Air 3/mini 5 | 已在岸上：26.0.1 有 Dopamine 3.0 + usbliter8 双保险 |
 
-要点：SPTM 阵营覆盖 iPhone 13→16 整整四代，人多势众、缺口最小，社区火力大概率优先落在这里；PPL 阵营（A14/M1）原本最渺茫，10-21 起出现实质转机信号——**下一关键观察点：Calif write-up 是否含 PPL/A14 相关内容**。⚠️ **27.2 已于 10-27 发布**，链上大部分漏洞被修——27.0.1 签名窗口进入最后倒计时。
+要点：SPTM 阵营覆盖 iPhone 13→16 整整四代，人多势众、缺口最小，社区火力大概率优先落在这里；PPL 阵营（A14/M1）原本最渺茫，10-21 起出现实质转机信号——**下一关键观察点：Calif write-up 是否含 PPL/A14 相关内容**。⚠️ **27.2 已于 10-27 发布**，链上大部分漏洞被修——27.0.1 签名窗口进入最后倒计时（11-02 仍在签）。
 
 ## 核查裁决速览
 
@@ -85,7 +89,7 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 | 事实错误 E1–E3 | 3 | Fugu14 反例 / iPhone 11 未被砍 / 修补通道误判（部分证伪） |
 | 需修正 P1–P6 | 6 | 性能数字为营销上限、Siri AI 门槛、usbliter8 工具链现状等 |
 | 重大遗漏 O1–O3 | 3 | 用户 A14/A15 在 26.x 无越狱、26 分支仍在维护、升级不可逆 |
-| 追踪新增 V7–V20 | 14 | SPTM 绕过 / 内核漏洞 / Esser 专访 / Duo 被攻破 / 链覆盖 27.1 / Chollima 代号 / 27.2 倒计时与发布 / 6 CVE 明细 / 独立复现 / 27.2 演示传闻 / 哈希承诺 / 披露里程碑 |
+| 追踪新增 V7–V26 | 20 | SPTM 绕过 / 内核漏洞 / Esser 专访 / Duo 被攻破 / 链覆盖 27.1 / Chollima 代号 / 27.2 倒计时与发布 / 6 CVE 明细 / 独立复现 / 27.2 演示传闻 / 哈希承诺 / 披露里程碑 / **AstraSaw 自述链（低可信度）/ CASLR 勘误 / 27.0.1 在签 / ElleKit 就绪** |
 
 ## 仓库结构
 
@@ -95,13 +99,13 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 | `research/` | 10 份维度核查档案 + 交叉验证 + 洞察 + Duo 事件四路核查（可复现证据链） |
 | `data/claims.json` | 机器可读断言库：claim / verdict / confidence / sources |
 | `data/timeline.json` | 事件时间线（持续更新） |
-| `CONTEXT.md` | 领域术语表：链/零件/拼图/阵营/窗口等概念的唯一权威定义 |
+| `CONTEXT.md` | 领域术语表：链/零件/拼图/阵营/窗口/第三链等概念的唯一权威定义 |
 | `SKILL.md` | Agent 技能入口：AI 代理可将本仓库作为技能加载调用 |
 | `CHANGELOG.md` | 事件进展更新记录 |
 
 ## 给 AI Agent 的入口
 
-本仓库同时是一个 **Agent Skill**：将仓库 clone 到 agent 的 skills 目录（或打包为 `.skill` 文件安装），agent 在遇到「iOS 27 越狱 / Calif / Hexacon / iPhone Duo / 26 vs 27 升级 / 我的芯片能不能越狱」类问题时会自动加载本档案的结论与引用。详见 `SKILL.md`。
+本仓库同时是一个 **Agent Skill**：将仓库 clone 到 agent 的 skills 目录（或打包为 `.skill` 文件安装），agent 在遇到「iOS 27 越狱 / Calif / Hexacon / iPhone Duo / AstraSaw / 26 vs 27 升级 / 我的芯片能不能越狱」类问题时会自动加载本档案的结论与引用。详见 `SKILL.md`。
 
 ## 免责声明
 
@@ -111,6 +115,6 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 
 ## English abstract
 
-Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Oct 31): iOS 27.2 shipped Oct 27 with 163 CVE fixes (6 credited to Calif, covering most of the chain); a third party independently reproduced CVE-2026-112705 (DoS-grade PoC public); Calif posted a bare SHA-256 commitment; an unverified 27.2 root demo by ikotas00 is circulating. Stay on ≤27.0.1 if you care about jailbreaking — disclosure is expected after 27.1 stops signing.** Includes a chip-camp map (PPL vs SPTM vs MIE) and an ecosystem progress diagram. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-10-31; evolving story.
+Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Nov 2): a self-claimed third chain "AstraSaw" (kirby swift, iOS 27.0–27.0.1, semi-untethered) was investigated and rated LOW CREDIBILITY — no PoC, no expert endorsement, no public precedent for its "AGX UAT race" SPTM bypass, and the author has no vulnerability-research track record; logged for observation, does not change the main verdicts. iOS 27.0.1 is still signed as of Nov 2 (do not update to 27.2); ElleKit 1.2 already covers iOS 15–27 rootless injection. Previously: 27.2 shipped Oct 27 with 163 CVE fixes (6 credited to Calif); CVE-2026-112705 independently reproduced (DoS-grade); Calif's SHA-256 commitment still unresolved.** Includes a chip-camp map (PPL vs SPTM vs MIE) and an ecosystem progress diagram. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-11-02; evolving story.
 
 License: CC BY 4.0 — attribution required when reusing content.
