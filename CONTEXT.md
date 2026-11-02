@@ -83,3 +83,7 @@ _Avoid_: 备用链、第二链（后者特指 Ikotas 传闻）
 **第二链**:
 Ikotas Labs 10-30 展示的 27.2 root 演示所暗示的、独立于 Calif 链的利用链；目前仅有单方图片证据，未证实。
 _Avoid_: B 计划、实锤
+
+**第三链（AstraSaw）**:
+kirby swift（@kirby_swiftios）11-01 自述的独立越狱项目（27.0–27.0.1，semi-untethered，链尾为 AGX UAT race 绕 SPTM）；全部技术声明仅自述、无 PoC、无专家背书、无公开先例，作者无漏洞研究史——评级低可信度，入档观察但不计入主线进度。
+_Avoid_: 第二链（特指 Ikotas 传闻）、B 计划（A15 独立 SPTM 路线）、实锤

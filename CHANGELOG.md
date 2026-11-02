@@ -1,5 +1,14 @@
 # 更新记录
 
+## 2026-11-02 · v0.6 AstraSaw 自述第三链入档（低可信度）+ 窗口/生态确认
+- **AstraSaw 事件（11-01）**：俄罗斯开发者 kirby swift（@kirby_swiftios）宣布 iOS 27.0–27.0.1 越狱工具，semi-untethered 类 Dopamine；自称 CASLR 绕过+稳定 krw 已完成，SPTM 绕过（AGX UAT race）未完成；不发 PoC、ETA 自述 1–2 周；实测仅 iPhone 15 Pro Max，iPad 不确定 → V21/V22（未证实，低可信度）
+- **三路集群深挖结论**：①作者画像=新手（GitHub kirby-swift 高度疑似同一人：Telegram 商店网页→Swift 小工具→AI 辅助 XPF patchfinder 移植，无 CVE/漏洞研究史）→ V24；②被点名专家（Lakr233/onejailbreak_/0xjohnny/Little_34306）零回应，国际媒体/俄语社区零报道；③'AGX UAT race 绕 SPTM'无公开先例（Titan 路径不同且 ≤17.4b3），27.2 的 163 CVE 无 AGX/IOGPU/SPTM/TXM 条目可对应；④发布画像与历史骗局特征重合度偏高，但无实锤——**入档观察，不计入主线进度，不改 A14/A15 判决**
+- **术语勘误**：中文转载正文 'CASKR' 系笔误，截图原文为 CASLR（KASLR）→ V23
+- **窗口确认**：27.0.1 截至 11-02 仍在签（ipsw.me API 实时拉取，含 iPad mini 6；27.0 已停签）→ V25
+- **生态确认**：ElleKit 1.2 已声明 rootless 注入支持 iOS 15–27（arm64）——任何链落地时插件注入层已就绪 → V26
+- README：进度图新增 kirby/AstraSaw 泳道（❓低可信度标注）；CONTEXT.md 新增「第三链（AstraSaw）」词条；P4 加注（AstraSaw 不改变 A14 判决）
+- 决策影响：核心结论不变（锁 27.0.1 / 不碰 27.2 / 主叙事=Calif 披露+独立 SPTM 绕过）；新增观察点=AstraSaw 自述 ETA（约 11-08～11-15）兑现情况、48–72h 后专家/媒体复查
+
 ## 2026-10-31 · v0.5 27.2 落地 + 首个公开零件 + 新变量
 - **iOS 27.2 发布（10-27，build 24B119）**：163 CVE；Calif 获 6 个 CVE 致谢——App Intents 112692 / AVEVideoEncoder 112705（内核内存破坏）/ CoreAudio 113912 / CoreGraphics 112611 / CoreGraphics 字体 113950（Substrate+Esser）/ WebKit 112684；另 10-19 更新的 iOS 27 安全说明含 Calif 内核 CVE-2026-28968 + TCC CVE-2026-86886 → V16
 - **披露里程碑明确**：社区预期 Calif 在 **27.1 停签后**发布 write-up（ONE Jailbreak）→ V20

@@ -1,5 +1,5 @@
 {
-  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-10-31", "note": "持续更新；pending = 预期事件；术语以 CONTEXT.md 为准"},
+  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-11-02", "note": "持续更新；pending = 预期事件；术语以 CONTEXT.md 为准"},
   "events": [
     {"date": "2025-09", "event": "iOS 26 发布；随后出现大规模发热/耗电投诉", "type": "context"},
     {"date": "2025-11-03", "event": "iOS 26.1 发布；同月苹果停签 iOS 26.0.1", "type": "context"},
@@ -9,6 +9,7 @@
     {"date": "2026-06-18", "event": "Paradigm Shift 披露 usbliter8（A12/A13 SecureROM 漏洞，亦覆盖 S4/S5 手表）", "type": "jailbreak"},
     {"date": "2026-07-21", "event": "Magnet Forensics 诉 Del Gaudio 案：法院命令下架 usbliter8 write-up 与 PoC", "type": "legal"},
     {"date": "2026-07-25", "event": "社区 usbliter8-fun 实现 iPhone 11 Pro 上 iOS 27.0b2 tethered 研究级越狱", "type": "jailbreak"},
+    {"date": "2026-07-31", "event": "ElleKit 1.2 发布：rootless 注入声明支持 iOS 15–27（arm64）——未来任何 27.0.1 工具的插件注入层已就绪", "type": "jailbreak"},
     {"date": "2026-08-07", "event": "Dopamine 3.0 发布：首个 iOS 26 越狱，26.0/26.0.1 仅限 A12/A13；同日 alfiecg24 发布 Titan（A14–A17 PPL+SPTM 绕过，≤17.4b3）、staturnz 发布 Momentarius（A12/A13 PPL 绕过）", "type": "jailbreak"},
     {"date": "2026-09-14", "event": "iOS 27.0 发布（约 126 CVE 修复）；安全说明致谢 'Calif.io in collaboration with Claude and Anthropic Research'（CVE-2026-65409/65410）", "type": "apple"},
     {"date": "2026-09-28", "event": "iOS 27.0.1 与 26.7.1 同日发布；26.7.1 修复在野 0day CVE-2026-86950（CISA KEV）", "type": "apple"},
@@ -27,8 +28,11 @@
     {"date": "2026-10-26/27", "event": "iOS 27.2（24B119）发布：163 CVE，Calif 获 6 个 CVE 致谢（含内核级 AVEVideoEncoder CVE-2026-112705），链上大部分漏洞被修；26.7.2/watchOS 27.2 等同步发布；社区明确披露里程碑=27.1 停签后", "type": "key_event"},
     {"date": "2026-10-30", "event": "三事件同日：①MMdAS 独立复现 CVE-2026-112705 并公开 DoS 级 PoC（链上零件首次公开）；②ikotas00 展示 27.2 root 演示（仅图片证据，未证实，'第二链'传闻）；③Calif 官推发布裸 SHA-256 哈希承诺（含义未知）", "type": "key_event"},
     {"date": "2026-10-31", "event": "日常巡检：27.0.1 仍在签（倒计时）；watchOS 27.0.1 越狱传闻核查——S4/S5 可破芯片无法升 27，集合零交集；用户提供 Calif 手表（Ultra）演示截图，一手推文待核实", "type": "audit"},
-    {"date": "pending", "event": "27.0.1 停签观察：27.2 已发布，按惯例停签在即——未升者最后窗口", "type": "pending"},
+    {"date": "2026-11-01", "event": "kirby swift（@kirby_swiftios）宣布 AstraSaw 项目：自称 iOS 27.0–27.0.1 越狱工具（semi-untethered 类 Dopamine），krw 已完成、SPTM 绕过（AGX UAT race）未完成，ETA 自述 1–2 周；不发 PoC 直接发完整工具——全部声明仅自述，无第三方验证", "type": "jailbreak"},
+    {"date": "2026-11-02", "event": "三路集群深挖 AstraSaw：①作者身份画像为新手开发者（AI 辅助 XPF patchfinder 移植、无漏洞研究史）；②被点名专家零回应、国际媒体/俄语社区零报道、AGX UAT race 无公开先例、27.2 无 GPU 类 CVE 可对应；③综合评级=低可信度（V21–V24），入档但不改主线判决。另核实：27.0.1 仍在签（ipsw.me 实时 API）；ElleKit 1.2 已覆盖 iOS 15–27", "type": "audit"},
+    {"date": "pending", "event": "27.0.1 停签观察：27.2 已发布，按惯例停签在即——未升者最后窗口（11-02 仍在签）", "type": "pending"},
     {"date": "pending", "event": "27.1 停签（Duo）→ 社区预期 Calif write-up 发布窗口：关键观察点=是否含 PPL/A14 相关内容，决定 A14 阵营判决走向", "type": "pending"},
-    {"date": "pending", "event": "Calif 10-30 哈希承诺的揭晓：对象版本与漏洞性质未知", "type": "pending"}
+    {"date": "pending", "event": "Calif 10-30 哈希承诺的揭晓：对象版本与漏洞性质未知", "type": "pending"},
+    {"date": "pending", "event": "AstraSaw 观察点：自述 ETA（1–2 周，约 11-08～11-15）是否兑现；48–72h 后国际媒体/被点名专家是否出现背书或打假；若发工具先查供应链可信度再评估", "type": "pending"}
   ]
 }
