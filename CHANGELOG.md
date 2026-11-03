@@ -1,5 +1,14 @@
 # 更新记录
 
+## 2026-11-03 · v0.6.1 AstraSaw 身份实据：14 岁学生自证，评级降至高风险存疑
+- **盲区集群三路（TG/Discord、X 全文、Reddit/时效）**：
+  - **决定性身份证据**：其 GitHub Pages 博客（kirbyswift.github.io/Kirby.swift，与 GitHub kirby-swift 互链）自述**14 岁、俄罗斯科米共和国**；真实项目=Lumeland（Minecraft 服务器，2025-08 开服）、Matrixgram（iOS Telegram 修改客户端）、School Market（校园二手 WebApp，硬编码弱口令）；实际 TG 句柄 @MatrixGramOwner（个人号）→ V27；V24 身份闭环确认
+  - **X 侧**：proof 帖全文经 fxtwitter 核实（status/2116888543381328205，正文仅 'proof' 一词+日志截图，2.7 万查看）；账号 2 天涨粉 1.6k→2.5k；早期推文（4–10 月）全镜像不可恢复
+  - **时效**：截至 11-03 国际媒体/专家仍零报道、零背书、零打假
+  - 残留盲区：TG/Discord 私域、37 条回复、r/jailbreak 评论（pullpush/12 个 redlib 实例/Wayback 全灭）
+- **定档**：从'低可信度'推进为**人设严重不符、高风险存疑**——期望价值接近零，不做实锤造假断言（截图伪造无直接证据）；观察点降级为'自述 ETA 到期自然证伪'
+- 决策影响：主线判决不变（只看 Calif 披露+独立 SPTM 绕过）；AstraSaw 若真发布任何文件，按高风险对象做供应链审查，勿直接安装
+
 ## 2026-11-02 · v0.6 AstraSaw 自述第三链入档（低可信度）+ 窗口/生态确认
 - **AstraSaw 事件（11-01）**：俄罗斯开发者 kirby swift（@kirby_swiftios）宣布 iOS 27.0–27.0.1 越狱工具，semi-untethered 类 Dopamine；自称 CASLR 绕过+稳定 krw 已完成，SPTM 绕过（AGX UAT race）未完成；不发 PoC、ETA 自述 1–2 周；实测仅 iPhone 15 Pro Max，iPad 不确定 → V21/V22（未证实，低可信度）
 - **三路集群深挖结论**：①作者画像=新手（GitHub kirby-swift 高度疑似同一人：Telegram 商店网页→Swift 小工具→AI 辅助 XPF patchfinder 移植，无 CVE/漏洞研究史）→ V24；②被点名专家（Lakr233/onejailbreak_/0xjohnny/Little_34306）零回应，国际媒体/俄语社区零报道；③'AGX UAT race 绕 SPTM'无公开先例（Titan 路径不同且 ≤17.4b3），27.2 的 163 CVE 无 AGX/IOGPU/SPTM/TXM 条目可对应；④发布画像与历史骗局特征重合度偏高，但无实锤——**入档观察，不计入主线进度，不改 A14/A15 判决**

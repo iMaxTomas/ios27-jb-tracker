@@ -1,5 +1,5 @@
 {
-  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-11-02", "note": "持续更新；pending = 预期事件；术语以 CONTEXT.md 为准"},
+  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-11-03", "note": "持续更新；pending = 预期事件；术语以 CONTEXT.md 为准"},
   "events": [
     {"date": "2025-09", "event": "iOS 26 发布；随后出现大规模发热/耗电投诉", "type": "context"},
     {"date": "2025-11-03", "event": "iOS 26.1 发布；同月苹果停签 iOS 26.0.1", "type": "context"},
@@ -29,10 +29,11 @@
     {"date": "2026-10-30", "event": "三事件同日：①MMdAS 独立复现 CVE-2026-112705 并公开 DoS 级 PoC（链上零件首次公开）；②ikotas00 展示 27.2 root 演示（仅图片证据，未证实，'第二链'传闻）；③Calif 官推发布裸 SHA-256 哈希承诺（含义未知）", "type": "key_event"},
     {"date": "2026-10-31", "event": "日常巡检：27.0.1 仍在签（倒计时）；watchOS 27.0.1 越狱传闻核查——S4/S5 可破芯片无法升 27，集合零交集；用户提供 Calif 手表（Ultra）演示截图，一手推文待核实", "type": "audit"},
     {"date": "2026-11-01", "event": "kirby swift（@kirby_swiftios）宣布 AstraSaw 项目：自称 iOS 27.0–27.0.1 越狱工具（semi-untethered 类 Dopamine），krw 已完成、SPTM 绕过（AGX UAT race）未完成，ETA 自述 1–2 周；不发 PoC 直接发完整工具——全部声明仅自述，无第三方验证", "type": "jailbreak"},
-    {"date": "2026-11-02", "event": "三路集群深挖 AstraSaw：①作者身份画像为新手开发者（AI 辅助 XPF patchfinder 移植、无漏洞研究史）；②被点名专家零回应、国际媒体/俄语社区零报道、AGX UAT race 无公开先例、27.2 无 GPU 类 CVE 可对应；③综合评级=低可信度（V21–V24），入档但不改主线判决。另核实：27.0.1 仍在签（ipsw.me 实时 API）；ElleKit 1.2 已覆盖 iOS 15–27", "type": "audit"},
+    {"date": "2026-11-02", "event": "三路集群深挖 AstraSaw：作者无漏洞研究史、专家零回应、AGX UAT race 无公开先例、27.2 无 GPU 类 CVE 可对应；评级低可信度（V21–V24）。另核实：27.0.1 仍在签（ipsw.me 实时 API）；ElleKit 1.2 已覆盖 iOS 15–27", "type": "audit"},
+    {"date": "2026-11-03", "event": "盲区集群（TG/Discord/X 全文/Reddit/时效）：本人博客自证 14 岁俄罗斯科米学生，真实项目=Minecraft 服务器+Telegram 修改客户端+校园 WebApp（V27）——人设与 SPTM 声明彻底脱节，评级推进为'人设严重不符、高风险存疑'；proof 帖全文核实（仅 'proof' 一词）；账号 2 天涨粉至 2.5k；媒体/专家仍零报道零背书；TG 私域/早期推文/reddit 评论经 20+ 通道不可达", "type": "audit"},
     {"date": "pending", "event": "27.0.1 停签观察：27.2 已发布，按惯例停签在即——未升者最后窗口（11-02 仍在签）", "type": "pending"},
     {"date": "pending", "event": "27.1 停签（Duo）→ 社区预期 Calif write-up 发布窗口：关键观察点=是否含 PPL/A14 相关内容，决定 A14 阵营判决走向", "type": "pending"},
     {"date": "pending", "event": "Calif 10-30 哈希承诺的揭晓：对象版本与漏洞性质未知", "type": "pending"},
-    {"date": "pending", "event": "AstraSaw 观察点：自述 ETA（1–2 周，约 11-08～11-15）是否兑现；48–72h 后国际媒体/被点名专家是否出现背书或打假；若发工具先查供应链可信度再评估", "type": "pending"}
+    {"date": "pending", "event": "AstraSaw 收尾观察（低优先级）：自述 ETA（约 11-08～11-15）到期自然证伪即可；若真发任何东西，先按高风险对象做供应链审查，勿直接安装", "type": "pending"}
   ]
 }
