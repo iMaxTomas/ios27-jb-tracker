@@ -30,10 +30,11 @@
     {"date": "2026-10-31", "event": "日常巡检：27.0.1 仍在签（倒计时）；watchOS 27.0.1 越狱传闻核查——S4/S5 可破芯片无法升 27，集合零交集；用户提供 Calif 手表（Ultra）演示截图，一手推文待核实", "type": "audit"},
     {"date": "2026-11-01", "event": "kirby swift（@kirby_swiftios）宣布 AstraSaw 项目：自称 iOS 27.0–27.0.1 越狱工具（semi-untethered 类 Dopamine），krw 已完成、SPTM 绕过（AGX UAT race）未完成，ETA 自述 1–2 周；不发 PoC 直接发完整工具——全部声明仅自述，无第三方验证", "type": "jailbreak"},
     {"date": "2026-11-02", "event": "三路集群深挖 AstraSaw：作者无漏洞研究史、专家零回应、AGX UAT race 无公开先例、27.2 无 GPU 类 CVE 可对应；评级低可信度（V21–V24）。另核实：27.0.1 仍在签（ipsw.me 实时 API）；ElleKit 1.2 已覆盖 iOS 15–27", "type": "audit"},
-    {"date": "2026-11-03", "event": "盲区集群（TG/Discord/X 全文/Reddit/时效）：本人博客自证 14 岁俄罗斯科米学生，真实项目=Minecraft 服务器+Telegram 修改客户端+校园 WebApp（V27）——人设与 SPTM 声明彻底脱节，评级推进为'人设严重不符、高风险存疑'；proof 帖全文核实（仅 'proof' 一词）；账号 2 天涨粉至 2.5k；媒体/专家仍零报道零背书；TG 私域/早期推文/reddit 评论经 20+ 通道不可达", "type": "audit"},
+    {"date": "2026-11-03", "event": "盲区集群：博客自述 14 岁学生实据（V27）→ AstraSaw 定档高风险存疑；proof 帖全文核实；媒体/专家仍零报道零背书", "type": "audit"},
+    {"date": "2026-11-03", "event": "Din3zh（Dinesh Shetty）'回到 ROOT! iOS 27.0.1' 截图鉴定：iPhone12,5（A13）+tethered 引导日志=usbliter8 bootrom 线延续至 27.0.1 正式构建，非新漏洞；微信'发现漏洞者'系误读（V29）——与 A14/A15 无关", "type": "audit"},
     {"date": "pending", "event": "27.0.1 停签观察：27.2 已发布，按惯例停签在即——未升者最后窗口（11-02 仍在签）", "type": "pending"},
     {"date": "pending", "event": "27.1 停签（Duo）→ 社区预期 Calif write-up 发布窗口：关键观察点=是否含 PPL/A14 相关内容，决定 A14 阵营判决走向", "type": "pending"},
     {"date": "pending", "event": "Calif 10-30 哈希承诺的揭晓：对象版本与漏洞性质未知", "type": "pending"},
-    {"date": "pending", "event": "AstraSaw 收尾观察（低优先级）：自述 ETA（约 11-08～11-15）到期自然证伪即可；若真发任何东西，先按高风险对象做供应链审查，勿直接安装", "type": "pending"}
+    {"date": "pending", "event": "AstraSaw 收尾观察（低优先级）：自述 ETA（约 11-08～11-15）到期按 V28 三态收口；若真发任何东西，先按高风险对象做供应链审查，勿直接安装", "type": "pending"}
   ]
 }
