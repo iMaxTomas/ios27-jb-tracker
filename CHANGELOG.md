@@ -1,5 +1,12 @@
 # 更新记录
 
+## 2026-11-03 · v0.7 AstraSaw 专档＋骗局识别＋评级流程固化
+- **新建 `research/astrasaw-audit.md`**：两轮集群完整证据链落盘——事件经过、身份轨迹（GitHub 8 仓库＋博客逐字原文）、技术声明核查（AGX UAT 零先例/27.2 无对应 CVE）、社区反应、四关定档逻辑、**残留盲区明细表（每个盲区标注尝试过的通道与失败原因：A 环境拦截／B 平台私域墙／C 第三方服务故障／D 索引时效）**、三态收尾预案
+- **README 新增「⚠️ 骗局识别」节**：AstraSaw 四特征画像（新号+私域引流／拒发 PoC 只发截图／催 ETA 承诺完整工具／声明与履历不匹配）＋行动准则（其发布物默认按潜在恶意软件处理）
+- **CONTEXT.md 新增「自述链评级」**：四关流程（履历→先例→背书→行为画像），后续新链声明直接套用，不必重复集群
+- **claims 新增 V28**（ETA 到期三态收口预案）；README 示意图措辞去个人化（聚焦"声明与履历不符"而非年龄）
+- 决策影响：主线不变；AstraSaw 观察优先级最低，待 11-08～15 自然证伪
+
 ## 2026-11-03 · v0.6.1 AstraSaw 身份实据：14 岁学生自证，评级降至高风险存疑
 - **盲区集群三路（TG/Discord、X 全文、Reddit/时效）**：
   - **决定性身份证据**：其 GitHub Pages 博客（kirbyswift.github.io/Kirby.swift，与 GitHub kirby-swift 互链）自述**14 岁、俄罗斯科米共和国**；真实项目=Lumeland（Minecraft 服务器，2025-08 开服）、Matrixgram（iOS Telegram 修改客户端）、School Market（校园二手 WebApp，硬编码弱口令）；实际 TG 句柄 @MatrixGramOwner（个人号）→ V27；V24 身份闭环确认

@@ -57,16 +57,23 @@
 
 → 综合：**高风险存疑**。边界：无截图伪造的直接实锤，故不做 falsified 断言。
 
-## 6. 检索覆盖面与残留盲区
+## 6. 检索覆盖面、残留盲区与失败原因
 
 已覆盖：X（fxtwitter 账号+proof 全文）、GitHub（全部 8 仓库+博客原文）、英文/中文/俄语媒体、专家动态、Apple 27.2 安全页全文、theapplewiki、Titan/asuka 源码、Reddit 搜索侧、Telegram 镜像（telegram.im）。两轮合计约 150+ 查询。
 
-残留盲区（通道失败已记录，非未尝试）：
-- TG 私域（t.me 全形式被环境拦截；私号本就无公开镜像）
-- Discord 服务器（邀请页/API 均不可达）
-- X 早期推文 4–10 月（nitter/xcancel/sotwe/twstalker/Wayback 全灭；Soundwave 推文存档 135 天扫描仅 1 条 RT）
-- proof 帖 37 条回复与 r/jailbreak 评论（pullpush 522、12 个 redlib 实例上游全挂、Wayback 空）
-- proof 图片本体（pbs.twimg.com 被封）
+**以下盲区均为"尝试后失败"而非"未尝试"**，失败原因分四类：A=核查环境网络拦截；B=平台登录/私域墙（公开互联网本无入口）；C=第三方公共服务故障；D=搜索引擎索引时效。
+
+| 盲区 | 尝试过的通道 | 失败原因 |
+|---|---|---|
+| Telegram 私域内容（@kirby_swift、@MatrixGramOwner） | t.me/s/ 预览（https+http）、?embed=1 单条嵌入、tgstat、telemetr、telegrams.info、telegram.im | **A**：t.me 全形式被环境拦截（audit rejected）；**B**：两个句柄均为个人账号而非公开频道——TG 私号消息本就无公开镜像，任何工具都读不到，需登录客户端 |
+| Discord 服务器（邀请 bgaWnehXBm） | discord.gg 邀请页、discord.com/api/v9/invites、disboard、discordservers.com | **A**：邀请页被拦、API 连接超时；**B**：私密服务器内容不公开，需加入后可见；服务器名录站无收录 |
+| X 早期推文（2026-04～10 月，约 140 条） | nitter×3、xcancel、sotwe、twstalker、threadreaderapp、Wayback CDX、Soundwave 推文存档（135 天全量扫描）、10+ 种搜索引擎写法 | **A**：镜像站与 archive.org 全部被拦或连接超时；**C**：可用镜像零存活；**D**：搜索引擎对小账号推文收录极不完整（仅零星 2 条）；存档库仅 1 条 RT |
+| proof 帖 37 条回复 | 搜索引擎、Soundwave 存档 | **D**：回复类内容几乎不被索引/存档 |
+| r/jailbreak 转帖正文与评论 | reddit 直连（www/old/JSON）、api.pullpush.io、search.pullpush.io、12 个 redlib/libreddit 实例、Wayback CDX | **A**：reddit 直连被网关拦截；**C**：pullpush 522 超时+JS 挑战，redlib 实例 11 个不可达、1 个解开 PoW 但上游全挂；Wayback 无快照 |
+| proof 图片本体（HWCy4DdWQAE6BN6.jpg） | pbs.twimg.com 直连、cdn.syndication.twimg.com | **A**：图片域被环境封锁；仅能通过艾橙转载截图间接目检 |
+| 11-01 之后的媒体/专家反应 | onejailbreak、zone.ci、iClarified 等复查 | **D**：搜索索引约止 10-30，新内容存在天然延迟；已在 11-03 复查补一轮，仍为零 |
+
+**补救路径**：以上盲区若能由读者在正常网络环境（可登录 X/TG/Discord/reddit）截取原文提供，即可继续交叉验证；评级结论保留随新证据修订的开放性。
 
 ## 7. 收尾预案（V28）
 
