@@ -87,3 +87,7 @@ _Avoid_: B 计划、实锤
 **第三链（AstraSaw）**:
 kirby swift（@kirby_swiftios）11-01 自述的独立越狱项目（27.0–27.0.1，semi-untethered，链尾为 AGX UAT race 绕 SPTM）；全部技术声明仅自述、无 PoC、无专家背书、无公开先例，作者无漏洞研究史——评级低可信度，入档观察但不计入主线进度。
 _Avoid_: 第二链（特指 Ikotas 传闻）、B 计划（A15 独立 SPTM 路线）、实锤
+
+**自述链评级**:
+对任何新出现的"独立链"声明的固定四关流程——①履历关（可验证实绩与声明是否匹配）②先例关（核心技术有无公开先例/CVE 对应）③背书关（专家/媒体/社区确认）④行为画像关（账号年龄、引流、PoC 策略与历史骗局特征的比对）；按通过情况定 verified／unverifiable／高风险存疑，再决定入档权重。首例应用=AstraSaw（四关全不过，见 research/astrasaw-audit.md）。
+_Avoid_: 凭感觉判断、因人（年龄/国籍）下结论
