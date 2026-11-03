@@ -3,7 +3,7 @@
 > **数据截至 2026-11-03 · 此为发展中事件，持续更新**
 > 本仓库是对「2026-10-16 Calif 于巴黎 Hexacon 大会演示 iPhone 18 Pro 上 iOS 27.0.1 untethered（重启后仍有效）越狱」这一事件的**事实核查档案**：10 维度并行核查、交叉验证、127 条参考文献。不含任何越狱工具或漏洞利用内容。
 >
-> 📌 **最新（11-03）**：AstraSaw 事件定档**高风险存疑**（作者声明与可验证履历严重不符，详见[核查专档](research/astrasaw-audit.md)）；观察优先级降至最低，主线只看 Calif 披露。**27.0.1 仍在签（11-02 实时确认），勿升 27.2**；ElleKit 1.2 已就绪（rootless 注入覆盖 iOS 15–27）。前情：27.2 已修链上大部分漏洞；CVE-2026-112705 公开复现（DoS 级）；Calif 哈希承诺未揭晓。详见 [CHANGELOG](CHANGELOG.md)。
+> 📌 **最新（11-03）**：AstraSaw 事件定档**高风险存疑**（作者声明与可验证履历严重不符，详见[核查专档](research/astrasaw-audit.md)）；观察优先级降至最低，主线只看 Calif 披露。另鉴定 Din3zh 的 27.0.1 root 截图为 **A13 bootrom 已知线延续**（非新漏洞，媒体误读，V29）。**27.0.1 仍在签（11-02 实时确认），勿升 27.2**；ElleKit 1.2 已就绪（rootless 注入覆盖 iOS 15–27）。前情：27.2 已修链上大部分漏洞；CVE-2026-112705 公开复现（DoS 级）；Calif 哈希承诺未揭晓。详见 [CHANGELOG](CHANGELOG.md)。
 
 ## 生态进度工程图（2026-11-03 快照）
 
@@ -65,7 +65,7 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 | 催 ETA、承诺完整工具 | 自述 1–2 周发完整越狱（与 Calif"披露+可能 PoC"的正规路径相反） |
 | 声明与可验证履历严重不匹配 | 自称全球首例 SPTM 绕过；公开实绩为应用开发/AI 辅助组件移植 |
 
-**行动准则**：①此类来源发布的任何"安装包/IPA/描述文件"，默认按潜在恶意软件处理，勿直接安装；②评级看四关——履历、先例、背书、行为画像（见 `CONTEXT.md`「自述链评级」），不看粉丝数与截图精美度；③完整证据链见 [AstraSaw 核查专档](research/astrasaw-audit.md)。
+**行动准则**：①此类来源发布的任何"安装包/IPA/描述文件"，默认按潜在恶意软件处理，勿直接安装；②评级看四关——履历、先例、背书、行为画像（见 `CONTEXT.md`「自述链评级」），不看粉丝数与截图精美度；③完整证据链见 [AstraSaw 核查专档](research/astrasaw-audit.md)；④注意区分**媒体误读**与自述造假——如 Din3zh 的 27.0.1 root 截图实为 A13 bootrom 已知线延续（真实工作、非新漏洞），被微信误标"发现漏洞者"（V29），不应与 AstraSaw 同类评级。
 
 ## 「27.0.1 链有机会覆盖老版本/老芯片」的支持理由（按强度排序）
 
@@ -102,7 +102,7 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 | 事实错误 E1–E3 | 3 | Fugu14 反例 / iPhone 11 未被砍 / 修补通道误判（部分证伪） |
 | 需修正 P1–P6 | 6 | 性能数字为营销上限、Siri AI 门槛、usbliter8 工具链现状等 |
 | 重大遗漏 O1–O3 | 3 | 用户 A14/A15 在 26.x 无越狱、26 分支仍在维护、升级不可逆 |
-| 追踪新增 V7–V28 | 22 | SPTM 绕过 / 内核漏洞 / Esser 专访 / Duo 被攻破 / 链覆盖 27.1 / Chollima 代号 / 27.2 倒计时与发布 / 6 CVE 明细 / 独立复现 / 27.2 演示传闻 / 哈希承诺 / 披露里程碑 / **AstraSaw 自述链→身份实据与收尾预案（高风险存疑）/ CASLR 勘误 / 27.0.1 在签 / ElleKit 就绪** |
+| 追踪新增 V7–V29 | 23 | SPTM 绕过 / 内核漏洞 / Esser 专访 / Duo 被攻破 / 链覆盖 27.1 / Chollima 代号 / 27.2 倒计时与发布 / 6 CVE 明细 / 独立复现 / 27.2 演示传闻 / 哈希承诺 / 披露里程碑 / **AstraSaw 自述链→身份实据与收尾预案（高风险存疑）/ CASLR 勘误 / 27.0.1 在签 / ElleKit 就绪 / Din3zh=A13 bootrom 线（媒体误读）** |
 
 ## 仓库结构
 
@@ -128,6 +128,6 @@ A14：❓ write-up是否含PPL/A14内容？（判定不变）
 
 ## English abstract
 
-Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Nov 3): the self-claimed "AstraSaw" jailbreak (kirby swift) is rated HIGH-RISK DOUBTFUL — its claims are fundamentally incompatible with the author's verifiable track record (full evidence dossier in `research/astrasaw-audit.md`); treat any released installer as potential malware. Observation deprioritized, main verdicts unchanged. iOS 27.0.1 still signed as of Nov 2 (do not update to 27.2); ElleKit 1.2 covers iOS 15–27 rootless injection. Previously: 27.2 shipped Oct 27 with 163 CVE fixes (6 credited to Calif); CVE-2026-112705 independently reproduced (DoS-grade); Calif's SHA-256 commitment unresolved.** Includes a chip-camp map (PPL vs SPTM vs MIE), an ecosystem progress diagram, and a scam-pattern field guide. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-11-03; evolving story.
+Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Nov 3): the self-claimed "AstraSaw" jailbreak (kirby swift) is rated HIGH-RISK DOUBTFUL — its claims are fundamentally incompatible with the author's verifiable track record (full evidence dossier in `research/astrasaw-audit.md`); treat any released installer as potential malware. Separately, Dinesh Shetty's 27.0.1 root screenshots were identified as the known A13/usbliter8 bootrom line (iPhone12,5, tethered) — real work but no new vulnerability, a media misreading (V29). iOS 27.0.1 still signed as of Nov 2 (do not update to 27.2); ElleKit 1.2 covers iOS 15–27 rootless injection. Previously: 27.2 shipped Oct 27 with 163 CVE fixes (6 credited to Calif); CVE-2026-112705 independently reproduced (DoS-grade); Calif's SHA-256 commitment unresolved.** Includes a chip-camp map (PPL vs SPTM vs MIE), an ecosystem progress diagram, and a scam-pattern field guide. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-11-03; evolving story.
 
 License: CC BY 4.0 — attribution required when reusing content.
