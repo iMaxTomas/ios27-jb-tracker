@@ -48,6 +48,45 @@ A14：❓ lambda write-up是否含PPL/A14内容？（判定不变）
 
 **读图要点**：发令枪首次有了具体日期——lambda 的自述 ETA（约一周内）替代了模糊的"等披露"；A12/A13 因 momentarius 早已就位而成为首批受益阵营，A14/A15 的瓶颈从"缺内核洞"单点凸显为"只剩防护层绕过"。11-04 的跨版本持久化演示（OTA 升 27.2 插件仍存活）是能力宣示而非新产品：27.2 漏洞已修，后升者没有入口，窗口逻辑不变。AstraSaw 留在图上仅为记录证伪过程。
 
+## 设备落地进度工程图（2026-11-04 快照）
+
+```text
+图例：██ 已有实物/已演示  ▒▒ 已宣布/待兑现  ░░ 未公开/未开始  ❓ 关键判定  ⚠️ 重点关注设备
+
+进度轴          防护层绕过             内核 KRW             组装适配             公开工具
+                │                      │                    │                    │
+① A13          ██ momentarius        ▒▒ lambda 自述≤1周   ▒▒ opa334 已承诺      ░░ Dopamine
+   i11全系 / SE2 / iPad 9
+               （现成）               （版本范围待确认）     （可快速适配）         【本月最有戏】
+                │                      │                    │                    │
+② A19/A20/M5   ██ MIE 已演示          ▒▒ KRW 大概率覆盖?    ░░ 完整链披露程度      ░░ 第三方工具
+   i17全系/17e / i18 Pro / Duo / iPad Pro M5
+               18 Pro+Duo 已攻破       （待 write-up）        （Calif不做终端工具）   【演示≠发布】
+                │                      │                    │                    │
+③ A15–A18      ██ 独立SPTM绕过实物    ▒▒ KRW 大概率覆盖?    ❓ SPTM公开并接合      ░░ Dopamine?
+   i13–16全系 / SE3 / mini6、7 / iPad Pro M2、M4 / iPad Air M2、M3
+               （≤27.0.1有效,未公开）  ⚠️ mini 6 在此阵营     【解锁即提速】
+                │                      │                    │                    │
+④ A14/M1       ❓ PPL绕过是否存在      ▒▒ KRW 大概率覆盖?    ░░ 无公开路径          ░░ 工具
+   i12全系 / iPad Air 4、5 / iPad Pro 2021
+               （看write-up）          ⚠️ i12 Pro Max 在此阵营 【仍是孤岛】
+
+【依赖关系】
+lambda KRW 发布
+├─ A13（momentarius 现成，最快）
+│  └─ i11 全系 / SE 2 / iPad 9
+├─ A14 / M1（仍缺 PPL 绕过）
+│  └─ i12 全系 / iPad Air 4、5 / iPad Pro 2021
+├─ A15–A18 / M2–M4（仍缺 SPTM 接合）
+│  └─ i13–16 全系 / SE 3 / mini 6、7 / iPad Pro M2、M4 / iPad Air M2、M3
+└─ A19 / A20 Pro / M5（已有演示，等完整链披露）
+   └─ i17 全系、17e / i18 Pro / Duo / iPad Pro M5
+
+注：A12（XS/XR 等）不能升 iOS 27，不在本图；旧版本线另算。
+```
+
+**读图结论**：A13 是“只差 KRW 兑现”；A19/A20 是“演示最强但发布不明”；A15 是“零件都有但没人组装”；A14 是“先回答有/无，再谈进度”。
+
 [English abstract below](#english-abstract)
 
 ---
