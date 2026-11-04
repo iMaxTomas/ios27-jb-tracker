@@ -1,5 +1,13 @@
 # 更新记录
 
+## 2026-11-04 · v0.8 发令枪：lambda 自述一周内发 KRW + opa334 适配承诺 + 跨版本持久化演示
+- **lambda（@pwnlambda/Anna Groza，Calif 成员）11-04 宣布**：约一周内发布**内核读写（KRW）漏洞利用代码+详细 write-up** → V30（verified/high，指声明与身份；兑现 pending）。身份三源核实：fxtwitter 资料、Apple 27.2 安全页 CVE-2026-112611 署名 'Anna Groza (@pwnlambda) of Calif.io'、ONE Jailbreak 专文；原帖未锁版本号，媒体据上下文指向 27.0.1/27.1 窗口
+- **opa334 11-04 响应**：将用 **momentarius**（staturnzz/TheRealClarity 的 A12/A13 PPL 绕过，Dopamine 3.0 已有组件）很快为 Dopamine 添加 **A12/A13** 支持；**A14+ 仍需 n-day SPTM 绕过**，且认为该绕过 'above the silicon ceiling'、LLM 无样本难以为力 → V31（verified/high）。其 10 月底分级词汇（Full/Semi Full/Semi/Semi Semi）入档 → V33
+- **Calif 11-04 新演示**：开启**锁定模式** → **OTA 升级 27.2** → 重启后插件仍有效（跨版本持久化）；Esser 说明 OTA 段已剪辑、可提供 5 分钟未删减版；机制未公开，艾橙'CT3/蓝巨魔3'猜测仅记为猜测；是否发布未知 → V32（verified/high 指演示存在）
+- **CONTEXT.md 新增**：momentarius / 跨版本持久化演示 / opa334 分级词汇；「披露里程碑」修订（lambda ETA 超前于 27.1 停签）；「自述链评级」补 lambda 四关全过对照例；timeline 补 lambda 10-14 哈希承诺（V19 注）
+- **决策影响**：发令枪从'无限期等披露'变为'约一周内兑现'（自述 ETA 约 11-04～11-11）；**A12/A13 成 27.0.1 首批 Dopamine 候选**；A14/A15（12 Pro Max/mini 6）防护层缺口不变——lambda KRW 本身不解 SPTM/PPL，设备建议维持（守 27.0.1、勿升 27.2）；跨版本持久化演示属能力展示，不改变版本窗口逻辑（27.2 漏洞已修，后升者无入口）
+- 核查边界：lambda 原帖与 Calif 视频未能直读 X 一手（环境限制），证据=两家微信一致转载（含英文原文/视频截图）+ONE Jailbreak 11-04 专文+fxtwitter 资料+Apple 署名页；无伪造迹象，多源一致
+
 ## 2026-11-03 · v0.7.1 Din3zh 鉴定：真实研究者 + 媒体误读（与自述造假区分）
 - **Dinesh Shetty（@Din3zh）'回到 ROOT! iOS 27.0.1' 事件**：微信（艾锋-HBS）将其与 kirby 并列为'发现漏洞者'；截图鉴定 uname=iPhone12,5（iPhone 11 Pro/A13/T8030）＋img4 上传 tethered 引导日志＝**usbliter8 bootrom 已知线延续至 27.0.1 正式构建**，非新漏洞、非 Calif 链、与 A14+ 无关 → V29（partially_true/high）
 - **作者资历核实**：2011 年 X 账号、官方认证、BlackHat/DefCon/POC/OWASP 讲师、OSCE/OSCP/OSWE——真实资深研究者，演示可信但范畴限 A12/A13 对照组
