@@ -5,6 +5,37 @@
 >
 > 📌 **最新（11-04）发令枪响了**：Calif 成员 **lambda（@pwnlambda/Anna Groza）宣布约一周内发布内核读写（KRW）利用+详细 write-up**；**opa334 确认将用 momentarius 快速为 Dopamine 添加 A12/A13 支持，A14+ 仍需 n-day SPTM 绕过**；Calif 同日演示**锁定模式+OTA 升 27.2 重启后插件仍有效**（跨版本持久化，机制未公开）。你的 A14/A15 判决不变：守 27.0.1（11-02 仍在签）、勿升 27.2。前情：AstraSaw 定档高风险存疑（[核查专档](research/astrasaw-audit.md)）；Din3zh=A13 bootrom 已知线（媒体误读）。详见 [CHANGELOG](CHANGELOG.md)。
 
+
+## 芯片绕过情况
+``` 
+iOS／iPadOS 27 芯片防护与公开落地条件
+├─ PPL 阵营
+│  ├─ A12
+│  │  ├─ momentarius：已有公开 PPL 绕过
+│  │  └─ 不能升级 iOS 27 → 本轮出局
+│  ├─ A13
+│  │  ├─ momentarius：已有公开 PPL 绕过，16.6–18.7.1、26.0–26.0.1有先例
+│  │  └─ 27.0.1：等 KRW＋Dopamine 接合 → 公开零件最齐
+│  └─ A14／M1
+│     ├─ 旧系统：有 PPL 绕过先例 17.3.1以及更早期系统
+│     ├─ 27.0.1：没有公开可用的 PPL 绕过
+│     └─ 缺口：PPL，不是只等 KRW
+│
+├─ SPTM 阵营
+│  ├─ 芯片：A15／A16／A17 Pro／A18／A18 Pro
+│  ├─ 芯片：M2／M3／M4
+│  ├─ 27.0.1：没有公开可用的 SPTM 绕过
+│  ├─ 独立 SPTM 绕过：有可信声明，但细节及工具接合未公开
+│  └─ 沿用 A19／A20 的共享漏洞：理论可能，尚未证实
+│
+└─ SPTM＋MIE 阵营
+   ├─ 芯片：A19／A19 Pro／A20 Pro／M5
+   ├─ A20 Pro／iPhone 18 Pro：Calif 私有完整链已演示
+   ├─ Duo：有插件演示，不等于完整公开验证
+   ├─ MIE 等关键环节：尚未公开
+   └─ 不能由 18 Pro 的演示外推整个阵营均已完成适配
+```
+
 ## 生态进度工程图（2026-11-04 快照）
 
 ```
