@@ -1,5 +1,15 @@
 # 更新记录
 
+## 2026-11-23 · v0.9 例行核查：lambda 延期且无 ETA＋A13 tethered 增量＋27.2 停签
+- **lambda 交付状态修正**：11-13 表示撰写 write-up 时发现更多需修复问题，暂缓发布；11-15 表示今后不再公布 ETA，准备好才发布。截至 11-23，KRW exploit、write-up、CVE／芯片矩阵、稳定度与裸哈希对应内容仍未见公开。证据为 [ONE Jailbreak 转录及原帖截图](https://onejailbreak.com/blog/calif-delays-ios-27-kernel-exploit-after-new-findings/)；这表示**延期且公开时钟未启动**，不等于研究失败或永久取消
+- **Dopamine 仍无 iOS 27 支持**：官方最新 release 仍为 [3.0.13](https://github.com/opa334/Dopamine/releases/tag/3.0.13)，未见 iOS 27 适配提交、开发分支或测试 IPA；lambda KRW 未公开，opa334 的接合适配前提仍未满足
+- **A13 的明确增量仍在 usbliter8 tethered 路线**：[Liter8 v0.3.0](https://github.com/Xplo8E/Liter8/releases/tag/v0.3.0) 新增 iPhone 11 上 27.2.1、27.3 beta 1 的 reviewed 状态，11 Pro／Pro Max 为 experimental，并加入无 SEP 场景的软件系统钥匙串；[v0.3.1](https://github.com/Xplo8E/Liter8/releases/tag/v0.3.1) 修复钥匙串属主。doublera1n 增加 iPad 9 支持说明和启动修复，但 iPad 9 仍为 untested。以上均不是 Dopamine、普通 IPA 或重启免电脑方案
+- **A14 及以后无新的公开防护突破**：A14 PPL、A15–A18 SPTM、A19／A20 Pro／M5 的 MIE 均未见可公开复现的新实物。Azozz 11-19 仅更新失败面文档：死路径 27→32+、IOSurface UAF 触发后 reclaim 失败，正文仍明确 kR/W 未实现（[079aa05](https://github.com/AzozzALFiras/iOS-Research/commit/079aa05)）；其设备芯片标注存在不一致，相关真机自述不视为独立验证
+- **独立研究与传闻收口**：MMdAS 公开复现仍为 DoS，窗口内零提交；Ikotas／DarkForge 无可验证新增。AstraSaw 自述 ETA 已过，GitHub 账号和 kirby 仓库目前均不可达，三态收口为**未见公开发布**；404 不能区分从未存在、删除、改名或转私有，不构成造假实锤
+- **签名与版本更新**：2026-11-22 16:32 UTC（用户所在地 11-23）实测 iPhone 12 Pro Max、iPad mini 6、iPhone 18 Pro、Duo 的 27.0.1／27.1 与 27.2 均为 signed=false，当前只有 27.2.1 开放正式版恢复签名（Duo 为专属 build 24B91034，其余为 24B156）。Apple 当前 beta 为 27.3 beta 2 v2（24C5049f），不是正式版；beta 逐设备签名仍无官方可核查数据。来源：[ipsw.me API](https://api.ipsw.me/v4/device/iPhone13,4?type=ipsw)、[Apple Developer Releases](https://developer.apple.com/news/releases/)、[Apple Security Releases](https://support.apple.com/en-us/100100)
+- **对既有结论的影响**：11-04 的“一周发令枪”只保留为历史声明；此前任何以其 ETA 或“11 月底公开”为前提的日历换算不再作为当前预测，不编造替代日期。A13 tethered 工程成熟度上调，但不能外推到 A14+；其余芯片公开判决不变
+- **检索边界**：覆盖 lambda／Calif 官网与 GitHub、Dopamine／A13 官方仓、各芯片防护研究仓、Azozz／MMdAS／Ikotas／DarkForge／AstraSaw、五类设备签名及 Apple 官方发布页。X 完整时间线不可读，11-16 后若存在 X 独家更新仍可能漏检；私域、未推送分支和私有测试包不在“未见公开”结论之外
+
 ## 2026-11-04 · v0.8 发令枪：lambda 自述一周内发 KRW + opa334 适配承诺 + 跨版本持久化演示
 - **lambda（@pwnlambda/Anna Groza，Calif 成员）11-04 宣布**：约一周内发布**内核读写（KRW）漏洞利用代码+详细 write-up** → V30（verified/high，指声明与身份；兑现 pending）。身份三源核实：fxtwitter 资料、Apple 27.2 安全页 CVE-2026-112611 署名 'Anna Groza (@pwnlambda) of Calif.io'、ONE Jailbreak 专文；原帖未锁版本号，媒体据上下文指向 27.0.1/27.1 窗口
 - **opa334 11-04 响应**：将用 **momentarius**（staturnzz/TheRealClarity 的 A12/A13 PPL 绕过，Dopamine 3.0 已有组件）很快为 Dopamine 添加 **A12/A13** 支持；**A14+ 仍需 n-day SPTM 绕过**，且认为该绕过 'above the silicon ceiling'、LLM 无样本难以为力 → V31（verified/high）。其 10 月底分级词汇（Full/Semi Full/Semi/Semi Semi）入档 → V33
@@ -66,8 +76,8 @@
 - 决策影响：核心结论不变（锁 27.0.1 / 不碰 27.2 / 不留 26.1）；新增关键观察点——**Calif write-up 是否含 PPL/A14 相关内容**
 
 ## 2026-10-20 · v0.2.1 新增芯片阵营图
-- README 新增「芯片阵营图」：PPL 阵营（A14/M1，缺两块拼图）/ SPTM 阵营（A15–A18、M2–M4，只差内核漏洞）⭐ / MIE 阵营（A19/A20，已演示）/ A12/A13 对照组
-- 结论：SPTM 阵营覆盖 iPhone 13→16 四代、缺口最小，社区火力大概率优先落此；PPL 阵营为孤岛
+- README 新增「芯片阵营图」：PPL 阵营（A14/M1，缺两块拼图）/ SPTM 阵营（A15–A18、A17 Pro、A18/Pro、M2/M3/M4，只差内核漏洞）⭐ / MIE 阵营（A19/A20，已演示）/ A12/A13 对照组
+- 结论：SPTM 阵营覆盖 iPhone 13→16 四代，人多势众、缺口最小，社区火力大概率优先落此；PPL 阵营为孤岛
 
 ## 2026-10-20 · v0.2 首次日常巡检 + SPTM 绕过进展
 - **opa334 PSA（10-17）**：iOS 27.2 beta 3 据传修补一个 SPTM 绕过——与 Calif 链无关；该绕过 ≤27.0.1 有效、本身可用于越狱，但 >26.0.1 需新内核漏洞 → claims 新增 V7/V8

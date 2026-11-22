@@ -1,5 +1,5 @@
 {
-  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-11-04", "note": "持续更新；pending = 预期事件；术语以 CONTEXT.md 为准"},
+  "meta": {"title": "iOS 27.0.1 越狱事件时间线", "as_of": "2026-11-23", "note": "持续更新；pending = 预期或未完成事件；术语以 CONTEXT.md 为准"},
   "events": [
     {"date": "2025-09", "event": "iOS 26 发布；随后出现大规模发热/耗电投诉", "type": "context"},
     {"date": "2025-11-03", "event": "iOS 26.1 发布；同月苹果停签 iOS 26.0.1", "type": "context"},
@@ -36,11 +36,18 @@
     {"date": "2026-11-04", "event": "lambda（@pwnlambda/Anna Groza，Calif 成员）宣布约一周内发布内核读写（KRW）漏洞利用代码+详细 write-up——披露发令枪首次有具体 ETA（V30）；同日其上传 [un]prompted 大会 '0-click exploits in an AI world' 演讲 slides", "type": "key_event"},
     {"date": "2026-11-04", "event": "opa334 回应：将用 momentarius 很快为 Dopamine 添加 A12/A13 支持（至利用覆盖版本）；A14+ 仍需 n-day SPTM 绕过，且认为该绕过超出 LLM 能力（无样本，非 Coruna 可比）（V31）；另其 10 月底分级词汇入档：Full/Semi Full/Semi/Semi Semi（V33）", "type": "jailbreak"},
     {"date": "2026-11-04", "event": "Calif 新演示：开启锁定模式 → OTA 升级 iOS 27.2 → 重启后插件仍有效（跨版本持久化，机制未公开）；Esser 称 OTA 段已剪辑、可提供 5 分钟未删减版；是否发布该组件未知（V32）", "type": "key_event"},
-    {"date": "pending", "event": "lambda KRW 利用+write-up 兑现（自述约 11-04～11-11）：观察版本范围、是否含 PPL/A14 内容（决定 A14 阵营判决）、lambda 10-14 哈希是否同步揭晓；随后 opa334 Dopamine A12/A13 适配进度", "type": "pending"},
-    {"date": "pending", "event": "27.0.1 停签观察：27.2 已发布，按惯例停签在即——未升者最后窗口（11-02 仍在签）", "type": "pending"},
-    {"date": "pending", "event": "27.1 停签（Duo）→ 原社区预期 write-up 窗口；已被 lambda 自述 ETA（11-04）超前具体化，保留作对照", "type": "pending"},
+    {"date": "2026-11-13", "event": "lambda 宣布撰写 write-up 时发现更多需修复问题，暂缓发布 KRW exploit＋write-up；延期声明经媒体转录并保留原帖截图", "type": "key_event"},
+    {"date": "2026-11-14", "event": "Liter8 v0.3.0／v0.3.1：新增 iPhone 11 上 27.2.1、27.3 beta 1 reviewed，11 Pro／Pro Max 为 experimental；加入无 SEP 场景的软件系统钥匙串并修复属主。仍属 usbliter8 tethered 路线，不是 Dopamine 或普通 IPA", "type": "jailbreak"},
+    {"date": "2026-11-15", "event": "lambda 表示今后不再公布 ETA，准备好才发布；截至 11-23，KRW、write-up、支持矩阵与裸哈希对应内容仍未见公开", "type": "key_event"},
+    {"date": "2026-11-16/19", "event": "doublera1n 增加 iPad 9（A13）支持说明与启动修复；iPad 9 仍标 untested，不能把代码加入当成实机验证", "type": "jailbreak"},
+    {"date": "2026-11-19", "event": "AzozzALFiras 更新失败面研究：死路径 27→32+，IOSurface UAF 触发成功但 reclaim 失败，kR/W 仍未实现；设备芯片标注存在不一致，不视为独立验证的 KRW 进展", "type": "audit"},
+    {"date": "2026-11-23", "event": "五线增量巡检：Dopamine 仍无 iOS 27 支持；A14 PPL、A15–A18 SPTM、A19／A20 Pro／M5 的 MIE 均未见新的公开可复现实物；MMdAS 仍为 DoS，Ikotas／DarkForge 无可验证新增", "type": "audit"},
+    {"date": "2026-11-23", "event": "实时签名核查（2026-11-22 16:32 UTC）：iPhone 12 Pro Max、iPad mini 6、iPhone 18 Pro、Duo 的 27.0.1／27.1 与 27.2 均已停签，当前仅 27.2.1 开放正式版恢复签名；Apple 当前 beta 为 27.3 beta 2 v2（24C5049f），beta 逐设备签名无官方可核查数据", "type": "apple"},
+    {"date": "2026-11-23", "event": "原 27.0.1 停签观察收口：27.0.1 已停签；11-02“仍在签”仅保留为历史快照，不再作为当前状态", "type": "apple"},
+    {"date": "2026-11-23", "event": "Duo 27.1 停签已确认；原社区预期 write-up 窗口仅保留为历史对照，lambda 现已明确延期且不再提供 ETA", "type": "apple"},
+    {"date": "2026-11-23", "event": "AstraSaw 三态收口：自述 ETA 已过，未见公开发布；GitHub 账号与 kirby 仓库目前不可达。不可达不能区分从未存在、删除、改名或转私有，不构成造假实锤；若出现任何发布物，仍先按高风险对象审查，勿直接安装", "type": "audit"},
+    {"date": "pending", "event": "lambda KRW 利用+write-up 兑现：11-13 已宣布延期，11-15 起不再提供 ETA；后续只观察实际公开发布、版本范围、是否含 PPL/A14 内容及 10-14 哈希是否同步揭晓；随后才是 opa334 Dopamine A12/A13 适配进度", "type": "pending"},
     {"date": "pending", "event": "Calif 10-30 哈希承诺的揭晓：对象版本与漏洞性质未知", "type": "pending"},
-    {"date": "pending", "event": "Calif 跨版本持久化（锁定模式+OTA 27.2 存活）机制是否披露/发布：未承诺，观察", "type": "pending"},
-    {"date": "pending", "event": "AstraSaw 收尾观察（低优先级）：自述 ETA（约 11-08～11-15）到期按 V28 三态收口；若真发任何东西，先按高风险对象做供应链审查，勿直接安装", "type": "pending"}
+    {"date": "pending", "event": "Calif 跨版本持久化（锁定模式+OTA 27.2 存活）机制是否披露/发布：未承诺，观察", "type": "pending"}
   ]
 }

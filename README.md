@@ -1,9 +1,9 @@
 # iOS 27.0.1 越狱事件 · 事实核查与持续追踪
 
-> **数据截至 2026-11-04 · 此为发展中事件，持续更新**
+> **数据截至 2026-11-23 · 此为发展中事件，持续更新**
 > 本仓库是对「2026-10-16 Calif 于巴黎 Hexacon 大会演示 iPhone 18 Pro 上 iOS 27.0.1 untethered（重启后仍有效）越狱」这一事件的**事实核查档案**：10 维度并行核查、交叉验证、127 条参考文献。不含任何越狱工具或漏洞利用内容。
 >
-> 📌 **最新（11-04）发令枪响了**：Calif 成员 **lambda（@pwnlambda/Anna Groza）宣布约一周内发布内核读写（KRW）利用+详细 write-up**；**opa334 确认将用 momentarius 快速为 Dopamine 添加 A12/A13 支持，A14+ 仍需 n-day SPTM 绕过**；Calif 同日演示**锁定模式+OTA 升 27.2 重启后插件仍有效**（跨版本持久化，机制未公开）。你的 A14/A15 判决不变：守 27.0.1（11-02 仍在签）、勿升 27.2。前情：AstraSaw 定档高风险存疑（[核查专档](research/astrasaw-audit.md)）；Din3zh=A13 bootrom 已知线（媒体误读）。详见 [CHANGELOG](CHANGELOG.md)。
+> 📌 **最新（11-23）例行核查**：lambda 已于 **11-13 宣布暂缓发布 KRW＋write-up**，11-15 表示今后**不再提供 ETA**；截至 11-23，公开 KRW、write-up、支持矩阵及哈希对应内容仍未见发布，Dopamine 也仍无 iOS 27 支持。A13 的公开增量集中在 **usbliter8 tethered** 路线：Liter8 v0.3.x 新增 iPhone 11 上 27.2.1／27.3 beta 1 实机复核；doublera1n 的 iPad 9 支持仍为 untested。签名窗口进一步收紧：**27.0.1、Duo 27.1 和 27.2 均已停签**，实测设备当前仅 **27.2.1** 开放正式版恢复签名；27.3 当前为 beta 2 v2。A14 及以后各阵营仍无公开可复现的 KRW／PPL／SPTM／MIE 突破。AstraSaw 自述 ETA 已过，账号与 kirby 仓库目前不可达，结论仅为“未见公开发布”，不作造假实锤。详见 [CHANGELOG](CHANGELOG.md)。
 
 
 ## 芯片绕过情况
@@ -56,11 +56,11 @@ Ikotas Labs   ──────────────────────
 kirby/AstraSaw ────────────────────────────────❓krw(自述)▒▒SPTM(AGX)░░工具?
                              (11-01宣布,semi-untethered,ETA自述1-2周)
                              (高风险存疑:声明与可验证履历严重不符,V21-V28)
-内核洞供应     ▒▒AI持续挖洞▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (ClearSword模式延续)
+内核洞供应     ▒▒AI持续挖洞▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (ClearSword模式延续)
 
 【中游 · 分析监测】
-johnny        ▒▒▒▒二进制比对▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (持续监测链活性)
-opa334        ▒▒PSA预警▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒◆承诺适配▒▒
+johnny        ▒▒▒▒二进制比对▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  (持续监测链活性)
+opa334        ▒▒PSA预警▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒◆承诺适配▒▒
               (11-04:KRW到手即用momentarius快速支持A12/A13; A14+仍缺SPTM绕过,V31)
 
 【下游 · 用户】
@@ -202,6 +202,6 @@ lambda KRW 发布
 
 ## English abstract
 
-Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Nov 4): Calif member lambda (@pwnlambda / Anna Groza, identity confirmed via Apple's CVE-2026-112611 credit) announced an iOS kernel read/write exploit + writeup within roughly a week; opa334 pledged quick Dopamine support for A12/A13 via momentarius, while A14+ still needs the n-day SPTM bypass ("above the silicon ceiling" for LLMs). Calif also demoed cross-version persistence: Lockdown Mode on, OTA update to 27.2, reboot — tweaks still alive (mechanism undisclosed). Verdicts for A14/A15 devices unchanged: stay on 27.0.1 (still signed as of Nov 2), avoid 27.2. Previously: AstraSaw rated HIGH-RISK DOUBTFUL (see `research/astrasaw-audit.md`); Din3zh's root shots = known A13 bootrom line (media misreading); 27.2 shipped with 163 CVEs (6 Calif credits); CVE-2026-112705 independently reproduced (DoS-grade).** Includes a chip-camp map (PPL vs SPTM vs MIE), an ecosystem progress diagram, and a scam-pattern field guide. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-11-04; evolving story.
+Fact-check archive of the **iOS 27.0.1 untethered jailbreak demo** by Calif at Hexacon 2026 (Paris, Oct 16) — and the follow-up **iPhone Duo release-day compromise** (Oct 23). The events are verified (primary sources + kernel build match with real panic logs), but the viral report around them contains 3 factual errors, 6 overstatements, and 3 critical omissions — most importantly: the Dopamine 3.0 jailbreak for iOS 26.0–26.0.1 only covers A12/A13 chips, so A14/A15 devices gain nothing by staying on iOS 26. **Latest (Nov 23): lambda delayed the KRW exploit + writeup on Nov 13 and said on Nov 15 that she would no longer provide ETAs. No public KRW, writeup, support matrix or hash reveal had appeared as of this check, and Dopamine still had no iOS 27 support. The clearest tooling increment remains on A13's usbliter8 tethered route: Liter8 v0.3.x reviewed 27.2.1 and 27.3 beta 1 on iPhone 11. Signing tightened further: 27.0.1, Duo-only 27.1 and 27.2 are unsigned on the devices checked; only 27.2.1 remains signed for stable restores. No new public reproducible PPL/SPTM/MIE breakthrough was found for A14 and later camps. AstraSaw's self-declared ETA passed without a verified public release; its account/repo are unreachable, which is not proof of fraud.** Includes a chip-camp map (PPL vs SPTM vs MIE), ecosystem progress diagrams, and a scam-pattern field guide. Full audit in `report/` (Chinese), machine-readable claims in `data/claims.json`, living timeline in `data/timeline.json`. Data as of 2026-11-23; evolving story.
 
 License: CC BY 4.0 — attribution required when reusing content.
